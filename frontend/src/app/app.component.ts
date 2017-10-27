@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { MessagesComponent } from './messages.components';
+import { HomeComponent } from './home.component';
+import { NavComponent} from './nav.component';
 
 @Component({
   selector: 'app-root',
-  template: '<h1>Hello {{title}}</h1><messages></messages>',
+  template: `
+    <nav></nav>
+    <router-outlet></router-outlet>
+    `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app';
-}
+export class AppComponent {}
