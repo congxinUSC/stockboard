@@ -3,10 +3,13 @@ import express from 'express';
 import request from 'request';
 import bodyParser from 'body-parser';
 import { parseString } from 'xml2js';
+import { Alpha } from './alphaAPI';
 
-var app = express();
+let app = express();
 
-var messages = [
+let alpha =new Alpha();
+
+let messages = [
   {text: 'some text', owner: 'Congxin'},
   {text: 'other text', owner: 'superman'}];
 
@@ -19,10 +22,9 @@ app.use((req, res, next) => {
 });
 
 
-var api = express.Router();
+let api = express.Router();
 
 // get stock symbols for auto complete from Market on Demand
-// TODO: Move this to the front end
 api.get('/lookup/:shortcut', (req, res) => {
   const base = 'http://dev.markitondemand.com/MODApis/Api/v2/Lookup/json?input=';
   request.get(base + req.params.shortcut, respJSON(res));
@@ -30,34 +32,16 @@ api.get('/lookup/:shortcut', (req, res) => {
 
 // get stock information (price, volume, indicators) from Alpha Vantage.
 // Approach 1 deal with the functions separately:
-api.get('/alpha/:symbol/:function', (req, res) => {
-  const base = 'http://www.alphavantage.co/query?';
-  let params =
-    'function=' + req.params.function +
-    '&symbol=' + req.params.symbol +
-    '&apikey=W6U249N3KNYWN2TB'; // should be constant
-  switch (req.params.function) {
-    case 'TIME_SERIES_DAILY':
-      params += '&outputsize=full';
-      break;
-    case 'SMA':
-    case 'EMA':
-    case 'RSI':
-    case 'ADX':
-    case 'CCI':
-    case 'BBANDS':
-      params +=
-        '&interval=daily'+
-        '&time_period=10'+
-        '&series_type=close';
-      break;
-    case 'STOCH':
-      params +=
-        '&interval=daily';
-      break;
-  }
-  request.get(base + params, respJSON(res));
-});
+api.get('/alpha/:symbol/PV', alpha.getPV());
+api.get('/alpha/:symbol/SMA', alpha.getSMA());
+api.get('/alpha/:symbol/EMA', alpha.getEMA());
+api.get('/alpha/:symbol/RSI', alpha.getRSI());
+api.get('/alpha/:symbol/ADX', alpha.getADX());
+api.get('/alpha/:symbol/CCI', alpha.getCCI());
+api.get('/alpha/:symbol/BBANDS', alpha.getBBANDS());
+api.get('/alpha/:symbol/MACD', alpha.getMACD());
+api.get('/alpha/:symbol/STOCH', alpha.getSTOCH());
+
 // Approach 2 wait for all messages and package them into one JSON (deprecated)
 /*
 // TODO: deal with wait-for-multiple-async-function problem
@@ -97,14 +81,13 @@ api.get('/news/:symbol', (req, res) => {
 });
 
 // get brief stock information from Market on Demand
-// TODO: Move this to the front end
 api.get('/short/:symbol', (req, res) => {
   const base = 'http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?symbol=';
   request.get(base + req.params.symbol, respJSON(res));
 });
 
 // helper function for the api
-var respJSON = function (res) {
+let respJSON = function (res) {
   return (err, resp, body) => {
     // TODO: deal with the error
     // TODO: deal with the resp header?

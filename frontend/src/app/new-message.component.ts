@@ -28,7 +28,7 @@ export class NewMessageComponent {
   message = {
     owner: "test",
     text: ""
-  }
+  };
 
   post(){
     this.webService.postMessage(this.message);

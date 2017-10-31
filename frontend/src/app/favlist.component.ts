@@ -17,6 +17,4 @@ import { ActivatedRoute } from '@angular/router';
 export class FavListComponent {
   constructor(private webService : WebService) {}
 
-  get(){
-  }
 }

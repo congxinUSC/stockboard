@@ -26,7 +26,9 @@ export class WebService {
 
   // The object that stores the entire set of detailed info of the stock
   // Should contain data for all the points in the chart and news
-  private stockDetailStore = {
+  stockDetailStore = {
+    Table: null,
+    Hist: null,
     PV: null,
     SMA: null,
     EMA: null,
@@ -78,9 +80,14 @@ export class WebService {
   }
 
   getStockDetail (symbol) {
-    this.http.get( this.BASE_URL + '/alpha' + symbol).subscribe(response => {
+    symbol = (symbol) ? '/' + symbol : '';
+    if(!(symbol)) return;
+    // TODO: deal with indicators, news and make the access async
+    this.http.get( this.BASE_URL + '/alpha' + symbol + '/PV').subscribe(response => {
       // update the detailed stock information
-      this.stockDetailStore = response.json();
+      this.stockDetailStore.PV = response.json().HCobj;
+      this.stockDetailStore.Hist = response.json().HSobj;
+      this.stockDetailStore.Table = response.json().TABobj;
       this.stockDetailSubject.next(this.stockDetailStore);
     }, this.handleError);
   }

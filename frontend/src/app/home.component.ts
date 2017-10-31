@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-//import { MessagesComponent } from './messages.components';
-//import { NewMessageComponent } from './new-message.component';
-//import { NavComponent} from './nav.component';
+import { MessagesComponent } from './messages.components';
+import { NewMessageComponent } from './new-message.component';
+import { NavComponent} from './nav.component';
+import { ChatsComponent } from './chats.component';
 
 @Component({
   selector: 'home',
@@ -10,6 +11,7 @@ import { Component } from '@angular/core';
     <messages></messages>
     <lookup></lookup>
     <favlist></favlist>
+    <charts></charts>
   `
   ,
   styleUrls: ['./app.component.css']

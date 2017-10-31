@@ -8,7 +8,8 @@ import {
   MatInputModule,
   MatSnackBarModule,
   MatToolbarModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatTabsModule
   } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { HomeComponent } from './home.component';
 import { RegisterComponent } from './register.components';
 import { LookupComponent } from './lookup.component';
 import { FavListComponent } from './favlist.component';
+import { ChatsComponent } from './chats.component';
 
 var routes = [
   {
@@ -51,7 +53,8 @@ var routes = [
     HomeComponent,
     RegisterComponent,
     LookupComponent,
-    FavListComponent
+    FavListComponent,
+    ChatsComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ var routes = [
     MatInputModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatTabsModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
