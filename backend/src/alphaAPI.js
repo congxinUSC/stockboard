@@ -259,7 +259,7 @@ export class Alpha {
           let date = new Date(data_keys[i]).getTime();
           if(_latest-date <= 180 * 24 * 3600 * 1000) {
             _HCcategories.push(data_keys[i]);
-            _HCEMA.push(main_data[data_keys[i]]['EMA']);
+            _HCEMA.push(Number(main_data[data_keys[i]]['EMA']));
           }
         }
         _HCcategories.reverse();
@@ -648,7 +648,9 @@ export class Alpha {
           }
         }
         _HCcategories.reverse();
-        _HCSMA.reverse();
+        _HCMACD_V.reverse();
+        _HCMACD_H.reverse();
+        _HCMACD_S.reverse();
         let retJSON = {
           HCobj: {      // highcharts object
             chart: {
