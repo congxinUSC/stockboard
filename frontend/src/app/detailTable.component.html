@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Striped Rows</h2>
+  <p>The .table-striped class adds zebra-stripes to a table:</p>
+  <table class="table table-striped" *ngIf="webService.stockInfoTab | async; let Tab; else loading">
+    <tbody>
+    <tr>
+      <td>Stock Ticker Symbol</td>
+      <td>{{Tab.symbol}}</td>
+    </tr>
+    <tr>
+      <td>Last Price</td>
+      <td>{{Tab.close}}</td>
+    </tr>
+    <tr>
+      <td>Change (Change Percent)</td>
+      <td>{{Tab.change_val}} ({{Tab.change_percent}}) <img src={{Tab.change_img}}/></td>
+    </tr>
+    <tr>
+      <td>Timestamp</td>
+      <td>{{Tab.timestamp}}</td>
+    </tr>
+    <tr>
+      <td>Open</td>
+      <td>{{Tab.open}}</td>
+    </tr>
+    <tr>
+      <td>Close</td>
+      <td>{{Tab.close}}</td>
+    </tr>
+    <tr>
+      <td>Day's Range</td>
+      <td>{{Tab.high}} - {{Tab.low}}</td>
+    </tr>
+    <tr>
+      <td>Volume</td>
+      <td>{{Tab.volume.toLocaleString()}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #loading>LOADING</ng-template>
+

@@ -9,7 +9,7 @@ HighchartsExporting(Highcharts);
   selector: 'charts',
   templateUrl: './charts.component.html',
 })
-export class ChatsComponent {
+export class ChartsComponent {
 
   constructor(public webService : WebService) {}
 
@@ -52,10 +52,5 @@ export class ChatsComponent {
   }
   private plotMACD(obj) {
     Highcharts.chart('chartMACD',obj)
-  }
-
-  // TODO: make the process async
-  post() {
-    this.webService.getStockDetail('GOOG');
   }
 }

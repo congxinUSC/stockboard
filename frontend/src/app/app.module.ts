@@ -23,9 +23,12 @@ import { HomeComponent } from './home.component';
 import { RegisterComponent } from './register.components';
 import { LookupComponent } from './lookup.component';
 import { FavListComponent } from './favlist.component';
-import { ChatsComponent } from './chats.component';
+import { ChartsComponent } from './charts.component';
+import { DetailTableComponent } from './detailTable.component';
+import { NewsFeedComponent } from './newsFeed.component';
+import { HistChartComponent } from './histChart.component';
 
-var routes = [
+let routes = [
   {
     path: '',
     component: HomeComponent
@@ -54,7 +57,10 @@ var routes = [
     RegisterComponent,
     LookupComponent,
     FavListComponent,
-    ChatsComponent
+    ChartsComponent,
+    HistChartComponent,
+    DetailTableComponent,
+    NewsFeedComponent
   ],
   imports: [
     BrowserModule,

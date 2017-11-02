@@ -1,0 +1,10 @@
+<div class = "container" *ngFor="let article of webService.stocknews | async">
+  <div class="well">
+    <h4><a href = {{article.link}} target="_blank">{{article.title}}</a></h4>
+    <br/>
+    <p>Author: {{article.author}}</p>
+    <p>Date: {{article.pubDate}}</p>
+  </div>
+</div>
+
+<button (click)="post()" mat-button color="primary">POST</button>

@@ -26,18 +26,23 @@ export class Alpha {
               if (!inJSON) {
                 console.log('json empty, tries left:' + tryCount);
                 helper(url, tryCount - 1);
+              } else if (Object.keys(inJSON)[0] === 'Error Message'){
+                res.json({error: 'Invalid API call'});
+              } else if (Object.keys(inJSON)[0] === 'Information'){
+                setTimeout(helper(url, tryCount-1), 5000);
               } else {
                 let _keys = Object.keys(inJSON);
+                let meta_data = inJSON[_keys[0]];
                 let main_data = inJSON[_keys[1]];
                 let data_keys = Object.keys(main_data);
-                let _open = Number(main_data[data_keys[0]]['1. open']);
-                let _high = Number(main_data[data_keys[0]]['2. high']);
-                let _low = Number(main_data[data_keys[0]]['3. low']);
-                let _close = Number(main_data[data_keys[0]]['4. close']);
+                let _open = Number(main_data[data_keys[0]]['1. open']).toFixed(2);
+                let _high = Number(main_data[data_keys[0]]['2. high']).toFixed(2);
+                let _low = Number(main_data[data_keys[0]]['3. low']).toFixed(2);
+                let _close = Number(main_data[data_keys[0]]['4. close']).toFixed(2);
                 let _volume = Number(main_data[data_keys[0]]['5. volume']);
-                let _previous_close = Number(main_data[data_keys[1]]['4. close']);
-                let _change_val = _close - _previous_close;
-                let _change_percent = (_change_val / _previous_close * 100).toString() + '%';
+                let _previous_close = Number(main_data[data_keys[1]]['4. close']).toFixed(2);
+                let _change_val = (_close - _previous_close).toFixed(2);
+                let _change_percent = (_change_val / _previous_close * 100).toFixed(2).toString() + '%';
                 let _change_img = _change_val >= 0 ?
                   'http://cs-server.usc.edu:45678/hw/hw6/images/Green_Arrow_Up.png' :
                   'http://cs-server.usc.edu:45678/hw/hw6/images/Red_Arrow_Down.png';
@@ -59,6 +64,7 @@ export class Alpha {
                 _HCcategories.reverse();
                 _HCprice.reverse();
                 _HCvolume.reverse();
+                _HSdata.reverse();
                 let retJSON = {
                   TABobj: {
                     symbol: req.params.symbol,
@@ -71,12 +77,10 @@ export class Alpha {
                     high: _high,
                     low: _low,
                     volume: _volume,
-                    timestamp: data_keys[0]
+                    timestamp: meta_data['3. Last Refreshed']
                   },
                   HCobj: {      // highcharts object
                     chart: {
-                      borderColor: '#E1E1E1',
-                      borderWidth: 2,
                       zoomType: 'x'
                     },
                     title: {
@@ -119,6 +123,7 @@ export class Alpha {
                         name: req.params.symbol + ' Volume',
                         type: 'column',
                         color: '#FF0000',
+                        borderColor: '',
                         yAxis: 1,
                         data: _HCvolume //to be filled
                       }
@@ -202,6 +207,10 @@ export class Alpha {
               if (!inJSON) {
                 console.log('json empty, tries left:' + tryCount);
                 helper(url, tryCount - 1);
+              } else if (Object.keys(inJSON)[0] === 'Error Message'){
+                res.json({error: 'Invalid API call'});
+              } else if (Object.keys(inJSON)[0] === 'Information'){
+                setTimeout(helper(url, tryCount-1), 5000);
               } else {
                 let _keys = Object.keys(inJSON);
                 let main_data = inJSON[_keys[1]];
@@ -222,8 +231,6 @@ export class Alpha {
                 let retJSON = {
                   HCobj: {      // highcharts object
                     chart: {
-                      borderColor: '#E1E1E1',
-                      borderWidth: 2,
                       zoomType: 'x'
                     },
                     title: {
@@ -288,6 +295,10 @@ export class Alpha {
               if (!inJSON) {
                 console.log('json empty, tries left:' + tryCount);
                 helper(url, tryCount - 1);
+              } else if (Object.keys(inJSON)[0] === 'Error Message'){
+                res.json({error: 'Invalid API call'});
+              } else if (Object.keys(inJSON)[0] === 'Information'){
+                setTimeout(helper(url, tryCount-1), 5000);
               } else {
                 let _keys = Object.keys(inJSON);
                 let main_data = inJSON[_keys[1]];
@@ -308,8 +319,6 @@ export class Alpha {
                 let retJSON = {
                   HCobj: {      // highcharts object
                     chart: {
-                      borderColor: '#E1E1E1',
-                      borderWidth: 2,
                       zoomType: 'x'
                     },
                     title: {
@@ -374,6 +383,10 @@ export class Alpha {
               if (!inJSON) {
                 console.log('json empty, tries left:' + tryCount);
                 helper(url, tryCount - 1);
+              } else if (Object.keys(inJSON)[0] === 'Error Message'){
+                res.json({error: 'Invalid API call'});
+              } else if (Object.keys(inJSON)[0] === 'Information'){
+                setTimeout(helper(url, tryCount-1), 5000);
               } else {
                 let _keys = Object.keys(inJSON);
                 let main_data = inJSON[_keys[1]];
@@ -394,8 +407,6 @@ export class Alpha {
                 let retJSON = {
                   HCobj: {      // highcharts object
                     chart: {
-                      borderColor: '#E1E1E1',
-                      borderWidth: 2,
                       zoomType: 'x'
                     },
                     title: {
@@ -460,6 +471,10 @@ export class Alpha {
               if (!inJSON) {
                 console.log('json empty, tries left:' + tryCount);
                 helper(url, tryCount - 1);
+              } else if (Object.keys(inJSON)[0] === 'Error Message'){
+                res.json({error: 'Invalid API call'});
+              } else if (Object.keys(inJSON)[0] === 'Information'){
+                setTimeout(helper(url, tryCount-1), 5000);
               } else {
                 let _keys = Object.keys(inJSON);
                 let main_data = inJSON[_keys[1]];
@@ -480,8 +495,6 @@ export class Alpha {
                 let retJSON = {
                   HCobj: {      // highcharts object
                     chart: {
-                      borderColor: '#E1E1E1',
-                      borderWidth: 2,
                       zoomType: 'x'
                     },
                     title: {
@@ -545,6 +558,10 @@ export class Alpha {
               if (!inJSON) {
                 console.log('json empty, tries left:' + tryCount);
                 helper(url, tryCount - 1);
+              } else if (Object.keys(inJSON)[0] === 'Error Message'){
+                res.json({error: 'Invalid API call'});
+              } else if (Object.keys(inJSON)[0] === 'Information'){
+                setTimeout(helper(url, tryCount-1), 5000);
               } else {
                 let _keys = Object.keys(inJSON);
                 let main_data = inJSON[_keys[1]];
@@ -565,8 +582,6 @@ export class Alpha {
                 let retJSON = {
                   HCobj: {      // highcharts object
                     chart: {
-                      borderColor: '#E1E1E1',
-                      borderWidth: 2,
                       zoomType: 'x'
                     },
                     title: {
@@ -631,6 +646,10 @@ export class Alpha {
               if (!inJSON) {
                 console.log('json empty, tries left:' + tryCount);
                 helper(url, tryCount - 1);
+              } else if (Object.keys(inJSON)[0] === 'Error Message'){
+                res.json({error: 'Invalid API call'});
+              } else if (Object.keys(inJSON)[0] === 'Information'){
+                setTimeout(helper(url, tryCount-1), 5000);
               } else {
                 let _keys = Object.keys(inJSON);
                 let main_data = inJSON[_keys[1]];
@@ -657,8 +676,6 @@ export class Alpha {
                 let retJSON = {
                   HCobj: {      // highcharts object
                     chart: {
-                      borderColor: '#E1E1E1',
-                      borderWidth: 2,
                       zoomType: 'x'
                     },
                     title: {
@@ -738,6 +755,10 @@ export class Alpha {
               if (!inJSON) {
                 console.log('json empty, tries left:' + tryCount);
                 helper(url, tryCount - 1);
+              } else if (Object.keys(inJSON)[0] === 'Error Message'){
+                res.json({error: 'Invalid API call'});
+              } else if (Object.keys(inJSON)[0] === 'Information'){
+                setTimeout(helper(url, tryCount-1), 5000);
               } else {
                 let _keys = Object.keys(inJSON);
                 let main_data = inJSON[_keys[1]];
@@ -764,8 +785,6 @@ export class Alpha {
                 let retJSON = {
                   HCobj: {      // highcharts object
                     chart: {
-                      borderColor: '#E1E1E1',
-                      borderWidth: 2,
                       zoomType: 'x'
                     },
                     title: {
@@ -844,6 +863,10 @@ export class Alpha {
               if (!inJSON) {
                 console.log('json empty, tries left:' + tryCount);
                 helper(url, tryCount - 1);
+              } else if (Object.keys(inJSON)[0] === 'Error Message'){
+                res.json({error: 'Invalid API call'});
+              } else if (Object.keys(inJSON)[0] === 'Information'){
+                setTimeout(helper(url, tryCount-1), 5000);
               } else {
                 let _keys = Object.keys(inJSON);
                 let main_data = inJSON[_keys[1]];
@@ -868,8 +891,6 @@ export class Alpha {
                 let retJSON = {
                   HCobj: {      // highcharts object
                     chart: {
-                      borderColor: '#E1E1E1',
-                      borderWidth: 2,
                       zoomType: 'x'
                     },
                     title: {

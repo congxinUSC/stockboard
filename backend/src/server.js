@@ -77,7 +77,21 @@ api.get('/news/:symbol', (req, res) => {
   const base = "https://seekingalpha.com/api/sa/combined/";
   request.get(base + req.params.symbol, (err, resp, body) => {
     parseString(body, (err, result) => {
-      res.json(result);
+      let list = result.rss.channel[0].item;
+      let retJSON =[];
+      for(let i=0, count=0;i<list.length && count<5;i++) {
+        if(list[i].link[0].indexOf('/article/') !== -1){
+          let tmp = {
+            title: list[i].title[0],
+            link: list[i].link[0],
+            author: list[i]['sa:author_name'][0],
+            pubDate: list[i].pubDate[0]
+          }
+          retJSON.push(tmp);
+          count++;
+        }
+      }
+      res.json(retJSON);
     });
   });
 });
