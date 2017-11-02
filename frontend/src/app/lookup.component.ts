@@ -19,7 +19,6 @@ import { FormControl, FormBuilder, Validators } from '@angular/forms';
       <button mat-raised-button [disabled]="!form.valid">Search</button>
     </form>
   `,
-  styleUrls: ['./app.component.css']
 })
 export class LookupComponent {
   form;

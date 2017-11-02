@@ -1,0 +1,61 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active">
+    <a href="#Price" aria-controls="Price" role="tab" data-toggle="tab">Price</a>
+  </li>
+  <li role="presentation">
+    <a href="#SMA" aria-controls="SMA" role="tab" data-toggle="tab">SMA</a>
+  </li>
+  <li role="presentation">
+    <a href="#EMA" aria-controls="EMA" role="tab" data-toggle="tab">EMA</a>
+  </li>
+  <li role="presentation">
+    <a href="#STOCH" aria-controls="STOCH" role="tab" data-toggle="tab">STOCH</a>
+  </li>
+  <li role="presentation">
+    <a href="#RSI" aria-controls="RSI" role="tab" data-toggle="tab">RSI</a>
+  </li>
+  <li role="presentation">
+    <a href="#ADX" aria-controls="ADX" role="tab" data-toggle="tab">ADX</a>
+  </li>
+  <li role="presentation">
+    <a href="#CCI" aria-controls="CCI" role="tab" data-toggle="tab">CCI</a>
+  </li>
+  <li role="presentation">
+    <a href="#BBANDS" aria-controls="BBANDS" role="tab" data-toggle="tab">BBANDS</a>
+  </li>
+  <li role="presentation">
+    <a href="#MACD" aria-controls="MACD" role="tab" data-toggle="tab">MACD</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="Price">
+    <div id="chartPV"></div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="SMA">
+    <div id="chartSMA"></div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="EMA">
+    <div id="chartEMA"></div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="STOCH">
+    <div id="chartSTOCH"></div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="RSI">
+    <div id="chartRSI"></div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="ADX">
+    <div id="chartADX"></div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="CCI">
+    <div id="chartCCI"></div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="BBANDS">
+    <div id="chartBBANDS"></div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="MACD">
+    <div id="chartMACD"></div>
+  </div>
+</div>
+<button (click)="post()" mat-button color="primary">POST</button>

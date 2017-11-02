@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HomeComponent } from './home.component';
-import { NavComponent} from './nav.component';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +6,5 @@ import { NavComponent} from './nav.component';
     <nav></nav>
     <router-outlet></router-outlet>
     `,
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {}

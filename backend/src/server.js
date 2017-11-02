@@ -32,6 +32,8 @@ api.get('/lookup/:shortcut', (req, res) => {
 
 // get stock information (price, volume, indicators) from Alpha Vantage.
 // Approach 1 deal with the functions separately:
+
+// TODO: replace these with a single function getALL
 api.get('/alpha/:symbol/PV', alpha.getPV());
 api.get('/alpha/:symbol/SMA', alpha.getSMA());
 api.get('/alpha/:symbol/EMA', alpha.getEMA());

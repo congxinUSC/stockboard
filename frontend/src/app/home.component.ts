@@ -14,6 +14,5 @@ import { ChatsComponent } from './chats.component';
     <charts></charts>
   `
   ,
-  styleUrls: ['./app.component.css']
 })
 export class HomeComponent {}

@@ -115,17 +115,17 @@ export class WebService {
       this.stockInfoTabSubject.next(this.stockDetailStore.Table);
     }, this.handleError);
 
-    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/SMA').subscribe(response => {
-    //   // update the detailed stock information
-    //   this.stockDetailStore.SMA = response.json().HCobj;
-    //   this.stockSMASubject.next(this.stockDetailStore.SMA);
-    // }, this.handleError);
+    this.http.get( this.BASE_URL + '/alpha' + symbol + '/SMA').subscribe(response => {
+      // update the detailed stock information
+      this.stockDetailStore.SMA = response.json().HCobj;
+      this.stockSMASubject.next(this.stockDetailStore.SMA);
+    }, this.handleError);
 
-    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/EMA').subscribe(response => {
-    //   // update the detailed stock information
-    //   this.stockDetailStore.EMA = response.json().HCobj;
-    //   this.stockEMASubject.next(this.stockDetailStore.EMA);
-    // }, this.handleError);
+    this.http.get( this.BASE_URL + '/alpha' + symbol + '/EMA').subscribe(response => {
+      // update the detailed stock information
+      this.stockDetailStore.EMA = response.json().HCobj;
+      this.stockEMASubject.next(this.stockDetailStore.EMA);
+    }, this.handleError);
 
     this.http.get( this.BASE_URL + '/alpha' + symbol + '/RSI').subscribe(response => {
       // update the detailed stock information
@@ -139,24 +139,24 @@ export class WebService {
       this.stockADXSubject.next(this.stockDetailStore.ADX);
     }, this.handleError);
 
-    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/CCI').subscribe(response => {
-    //   // update the detailed stock information
-    //   this.stockDetailStore.CCI = response.json().HCobj;
-    //   this.stockCCISubject.next(this.stockDetailStore.CCI);
-    // }, this.handleError);
-    //
-    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/BBANDS').subscribe(response => {
-    //   // update the detailed stock information
-    //   this.stockDetailStore.BBANDS = response.json().HCobj;
-    //   this.stockBBANDSSubject.next(this.stockDetailStore.BBANDS);
-    // }, this.handleError);
-    //
-    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/STOCH').subscribe(response => {
-    //   // update the detailed stock information
-    //   this.stockDetailStore.STOCH = response.json().HCobj;
-    //   this.stockSTOCHSubject.next(this.stockDetailStore.STOCH);
-    // }, this.handleError);
-    //
+    this.http.get( this.BASE_URL + '/alpha' + symbol + '/CCI').subscribe(response => {
+      // update the detailed stock information
+      this.stockDetailStore.CCI = response.json().HCobj;
+      this.stockCCISubject.next(this.stockDetailStore.CCI);
+    }, this.handleError);
+
+    this.http.get( this.BASE_URL + '/alpha' + symbol + '/BBANDS').subscribe(response => {
+      // update the detailed stock information
+      this.stockDetailStore.BBANDS = response.json().HCobj;
+      this.stockBBANDSSubject.next(this.stockDetailStore.BBANDS);
+    }, this.handleError);
+
+    this.http.get( this.BASE_URL + '/alpha' + symbol + '/STOCH').subscribe(response => {
+      // update the detailed stock information
+      this.stockDetailStore.STOCH = response.json().HCobj;
+      this.stockSTOCHSubject.next(this.stockDetailStore.STOCH);
+    }, this.handleError);
+
     this.http.get( this.BASE_URL + '/alpha' + symbol + '/MACD').subscribe(response => {
       // update the detailed stock information
       this.stockDetailStore.MACD = response.json().HCobj;

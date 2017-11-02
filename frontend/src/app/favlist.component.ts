@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
         <mat-card-content>{{brief.Symbol}}</mat-card-content>
       </mat-card>
     </div>
-  `
+  `,
 })
 export class FavListComponent {
   constructor(private webService : WebService) {}
