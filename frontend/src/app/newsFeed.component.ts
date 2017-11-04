@@ -13,6 +13,5 @@ export class NewsFeedComponent {
   // TODO: make the process async
   post() {
     this.webService.getStockDetail('AAPL');
-    this.webService.stocknews.subscribe(n=>console.log(n));
   }
 }

@@ -123,7 +123,7 @@ export class Alpha {
                         name: req.params.symbol + ' Volume',
                         type: 'column',
                         color: '#FF0000',
-                        borderColor: '',
+                        borderColor: 'RGBA(255,0,0,0)',
                         yAxis: 1,
                         data: _HCvolume //to be filled
                       }

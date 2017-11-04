@@ -13,6 +13,7 @@ export class ChartsComponent {
 
   constructor(public webService : WebService) {}
 
+  status;
   ngOnInit () {
     this.webService.stockPV.subscribe(this.plotPV);
     this.webService.stockSMA.subscribe(this.plotSMA);
@@ -24,33 +25,55 @@ export class ChartsComponent {
     this.webService.stockBBANDS.subscribe(this.plotBBANDS);
     this.webService.stockMACD.subscribe(this.plotMACD);
 
+    this.webService.requestStatus.subscribe((obj)=>{
+      this.status=obj;
+    });
   }
 
+  // setTimeout(func, 0) to make sure this happens after angular render the target div
   private plotPV(obj) {
-    Highcharts.chart('chartPV',obj)
+    setTimeout(()=>{
+      Highcharts.chart('chartPV',obj);
+    }, 0);
   }
   private plotSMA(obj) {
-    Highcharts.chart('chartSMA',obj)
+    setTimeout(()=>{
+      Highcharts.chart('chartSMA',obj);
+    }, 0);
   }
   private plotEMA(obj) {
-    Highcharts.chart('chartEMA',obj)
+    setTimeout(()=>{
+      Highcharts.chart('chartEMA',obj);
+    }, 0);
   }
   private plotSTOCH(obj) {
-    Highcharts.chart('chartSTOCH',obj)
+    setTimeout(()=>{
+      Highcharts.chart('chartSTOCH',obj);
+    }, 0);
   }
   private plotRSI(obj) {
-    Highcharts.chart('chartRSI',obj)
+    setTimeout(()=>{
+      Highcharts.chart('chartRSI',obj);
+    }, 0);
   }
   private plotADX(obj) {
-    Highcharts.chart('chartADX',obj)
+    setTimeout(()=>{
+      Highcharts.chart('chartADX',obj);
+    }, 0);
   }
   private plotCCI(obj) {
-    Highcharts.chart('chartCCI',obj)
+    setTimeout(()=>{
+      Highcharts.chart('chartCCI',obj);
+    }, 0);
   }
   private plotBBANDS(obj) {
-    Highcharts.chart('chartBBANDS',obj)
+    setTimeout(()=>{
+      Highcharts.chart('chartBBANDS',obj);
+    }, 0);
   }
   private plotMACD(obj) {
-    Highcharts.chart('chartMACD',obj)
+    setTimeout(()=>{
+      Highcharts.chart('chartMACD',obj);
+    }, 0);
   }
 }

@@ -31,30 +31,165 @@
 <!-- Tab panes -->
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="Price">
-    <div id="chartPV"></div>
+    <div [ngSwitch]="(webService.requestStatus | async)?.PV">
+      <div *ngSwitchCase="'loading'">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            <span class="sr-only">50% Complete</span>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'error'">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>
+          Failed to get Price data.
+        </div>
+      </div>
+      <div *ngSwitchCase="'OK'" id="chartPV"></div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane" id="SMA">
-    <div id="chartSMA"></div>
+    <div [ngSwitch]="(webService.requestStatus | async)?.SMA">
+      <div *ngSwitchCase="'loading'">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            <span class="sr-only">50% Complete</span>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'error'">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>
+          Failed to get SMA data.
+        </div>
+      </div>
+      <div *ngSwitchCase="'OK'" id="chartSMA"></div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane" id="EMA">
-    <div id="chartEMA"></div>
+    <div [ngSwitch]="(webService.requestStatus | async)?.EMA">
+      <div *ngSwitchCase="'loading'">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            <span class="sr-only">50% Complete</span>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'error'">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>
+          Failed to get EMA data.
+        </div>
+      </div>
+      <div *ngSwitchCase="'OK'" id="chartEMA"></div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane" id="STOCH">
-    <div id="chartSTOCH"></div>
+    <div [ngSwitch]="(webService.requestStatus | async)?.STOCH">
+      <div *ngSwitchCase="'loading'">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            <span class="sr-only">50% Complete</span>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'error'">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>
+          Failed to get STOCH data.
+        </div>
+      </div>
+      <div *ngSwitchCase="'OK'" id="chartSTOCH"></div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane" id="RSI">
-    <div id="chartRSI"></div>
+    <div [ngSwitch]="(webService.requestStatus | async)?.RSI">
+      <div *ngSwitchCase="'loading'">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            <span class="sr-only">50% Complete</span>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'error'">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>
+          Failed to get RSI data.
+        </div>
+      </div>
+      <div *ngSwitchCase="'OK'" id="chartRSI"></div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane" id="ADX">
-    <div id="chartADX"></div>
+    <div [ngSwitch]="(webService.requestStatus | async)?.ADX">
+      <div *ngSwitchCase="'loading'">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            <span class="sr-only">50% Complete</span>
+          </div>
+        </div>
+     </div>
+      <div *ngSwitchCase="'error'">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>
+          Failed to get ADX data.
+        </div>
+      </div>
+      <div *ngSwitchCase="'OK'" id="chartADX"></div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane" id="CCI">
-    <div id="chartCCI"></div>
+    <div [ngSwitch]="(webService.requestStatus | async)?.CCI">
+      <div *ngSwitchCase="'loading'">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            <span class="sr-only">50% Complete</span>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'error'">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>
+          Failed to get CCI data.
+        </div>
+      </div>
+      <div *ngSwitchCase="'OK'" id="chartCCI"></div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane" id="BBANDS">
-    <div id="chartBBANDS"></div>
+    <div [ngSwitch]="(webService.requestStatus | async)?.BBANDS">
+      <div *ngSwitchCase="'loading'">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            <span class="sr-only">50% Complete</span>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'error'">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>
+          Failed to get BBANDS data.
+        </div>
+      </div>
+      <div *ngSwitchCase="'OK'" id="chartBBANDS"></div>
+    </div>
   </div>
   <div role="tabpanel" class="tab-pane" id="MACD">
-    <div id="chartMACD"></div>
+    <div [ngSwitch]="(webService.requestStatus | async)?.MACD">
+      <div *ngSwitchCase="'loading'">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            <span class="sr-only">50% Complete</span>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'error'">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>
+          Failed to get MACD data.
+        </div>
+      </div>
+      <div *ngSwitchCase="'OK'" id="chartMACD"></div>
+    </div>
   </div>
 </div>

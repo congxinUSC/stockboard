@@ -13,20 +13,22 @@ import {
   } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { MessagesComponent } from './messages.components';
+import { MessagesComponent } from './messages.component';
 import { NewMessageComponent } from './new-message.component';
 import { WebService } from './web.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './nav.component';
 import { HomeComponent } from './home.component';
-import { RegisterComponent } from './register.components';
+import { RegisterComponent } from './register.component';
 import { LookupComponent } from './lookup.component';
 import { FavListComponent } from './favlist.component';
 import { ChartsComponent } from './charts.component';
 import { DetailTableComponent } from './detailTable.component';
 import { NewsFeedComponent } from './newsFeed.component';
 import { HistChartComponent } from './histChart.component';
+import { DetailComponent } from './detail.component';
+import { FbshareComponent } from './fbshare.component';
 
 let routes = [
   {
@@ -60,7 +62,9 @@ let routes = [
     ChartsComponent,
     HistChartComponent,
     DetailTableComponent,
-    NewsFeedComponent
+    NewsFeedComponent,
+    FbshareComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

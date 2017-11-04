@@ -1,42 +1,55 @@
-<div class="container">
-  <h2>Striped Rows</h2>
-  <p>The .table-striped class adds zebra-stripes to a table:</p>
-  <table class="table table-striped" *ngIf="webService.stockInfoTab | async; let Tab; else loading">
-    <tbody>
-    <tr>
-      <td>Stock Ticker Symbol</td>
-      <td>{{Tab.symbol}}</td>
-    </tr>
-    <tr>
-      <td>Last Price</td>
-      <td>{{Tab.close}}</td>
-    </tr>
-    <tr>
-      <td>Change (Change Percent)</td>
-      <td>{{Tab.change_val}} ({{Tab.change_percent}}) <img src={{Tab.change_img}}/></td>
-    </tr>
-    <tr>
-      <td>Timestamp</td>
-      <td>{{Tab.timestamp}}</td>
-    </tr>
-    <tr>
-      <td>Open</td>
-      <td>{{Tab.open}}</td>
-    </tr>
-    <tr>
-      <td>Close</td>
-      <td>{{Tab.close}}</td>
-    </tr>
-    <tr>
-      <td>Day's Range</td>
-      <td>{{Tab.high}} - {{Tab.low}}</td>
-    </tr>
-    <tr>
-      <td>Volume</td>
-      <td>{{Tab.volume.toLocaleString()}}</td>
-    </tr>
-    </tbody>
-  </table>
+<div  [ngSwitch]="(webService.requestStatus | async)?.PV">
+  <div *ngSwitchCase="'loading'">
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+        <span class="sr-only">50% Complete</span>
+      </div>
+    </div>
+  </div>
+  <div *ngSwitchCase="'error'">
+    <div class="alert alert-danger" role="alert">
+      <span class="sr-only">Error:</span>
+      Failed to get current stock data.
+    </div>
+  </div>
+  <div *ngSwitchCase="'OK'">
+    <table class="table table-striped">
+      <tbody>
+      <tr>
+        <td>Stock Ticker Symbol</td>
+        <td>{{info.symbol}}</td>
+      </tr>
+      <tr>
+        <td>Last Price</td>
+        <td>{{info.close}}</td>
+      </tr>
+      <tr>
+        <td>Change (Change Percent)</td>
+        <td>{{info.change_val}} ({{info.change_percent}}) <img src={{info.change_img}}/></td>
+      </tr>
+      <tr>
+        <td>Timestamp</td>
+        <td>{{info.timestamp}}</td>
+      </tr>
+      <tr>
+        <td>Open</td>
+        <td>{{info.open}}</td>
+      </tr>
+      <tr>
+        <td>Close</td>
+        <td>{{info.close}}</td>
+      </tr>
+      <tr>
+        <td>Day's Range</td>
+        <td>{{info.high}} - {{info.low}}</td>
+      </tr>
+      <tr>
+        <td>Volume</td>
+        <td>{{info.volume.toLocaleString()}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <ng-template #loading>LOADING</ng-template>
+  </div>
 </div>
-<ng-template #loading>LOADING</ng-template>
 

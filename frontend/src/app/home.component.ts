@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
     <messages></messages>
     <lookup></lookup>
     <favlist></favlist>
-    <DetailTab></DetailTab>
-    <charts></charts>
+    <Detail></Detail>
     <NewsFeed></NewsFeed>
     <histChart></histChart>
   `
