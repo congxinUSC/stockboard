@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { WebService } from './web.service';
+import { LocalStorageService } from './localstorage.service';
 import * as Highcharts from 'highcharts';
 import * as HighchartsExporting from 'highcharts/modules/exporting';
 
 HighchartsExporting(Highcharts);
+
 
 @Component({
   selector: 'charts',
@@ -11,7 +13,7 @@ HighchartsExporting(Highcharts);
 })
 export class ChartsComponent {
 
-  constructor(public webService : WebService) {}
+  constructor(public webService : WebService, public localStorageService : LocalStorageService) {}
 
   status;
   ngOnInit () {
@@ -26,8 +28,8 @@ export class ChartsComponent {
     this.webService.stockMACD.subscribe(this.plotMACD);
 
     this.webService.requestStatus.subscribe((obj)=>{
-      this.status=obj;
-    });
+        this.status=obj;
+      });
   }
 
   // setTimeout(func, 0) to make sure this happens after angular render the target div
@@ -75,5 +77,9 @@ export class ChartsComponent {
     setTimeout(()=>{
       Highcharts.chart('chartMACD',obj);
     }, 0);
+  }
+
+  switchTab(event) {
+    this.localStorageService.setSelected(event.target.innerText);
   }
 }

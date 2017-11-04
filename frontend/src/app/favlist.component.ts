@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'favlist',
   template: `
-
     <div *ngFor="let brief of webService.stockBrief | async">
       <mat-card class="card">
         <mat-card-title>{{brief.Name}}</mat-card-title>

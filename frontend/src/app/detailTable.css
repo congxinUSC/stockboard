@@ -1,0 +1,12 @@
+img.red_green_arrow {
+  width: 12px;
+  height: 12px;
+}
+
+.fall {
+  color: #FF0000;
+}
+
+.raise {
+  color: #00FF00;
+}

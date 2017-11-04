@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { WebService } from './web.service';
-
+import * as $ from 'jquery';
 
 @Component({
   selector: 'DetailTab',
   templateUrl: './detailTable.component.html',
+  styleUrls: ['./detailTable.css']
 })
 export class DetailTableComponent {
 

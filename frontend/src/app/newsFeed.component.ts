@@ -10,6 +10,14 @@ export class NewsFeedComponent {
 
   constructor(public webService : WebService) {}
 
+  newsobj;
+
+  ngOnInit () {
+    this.webService.stocknews.subscribe((obj) =>{
+      this.newsobj=obj;
+    });
+  }
+
   // TODO: make the process async
   post() {
     this.webService.getStockDetail('AAPL');

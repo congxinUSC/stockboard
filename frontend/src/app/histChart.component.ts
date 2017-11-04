@@ -7,7 +7,7 @@ HighchartsExporting(Highcharts);
 
 @Component({
   selector: 'histChart',
-  template: '<div id="chartHist"></div>',
+  templateUrl: './histChart.component.html',
 })
 export class HistChartComponent {
 
@@ -18,6 +18,8 @@ export class HistChartComponent {
   }
 
   private plotHist(obj) {
-    Highcharts.stockChart('chartHist',obj);
+    setTimeout(()=>{
+      Highcharts.stockChart('chartHist',obj);
+    }, 0);
   }
 }

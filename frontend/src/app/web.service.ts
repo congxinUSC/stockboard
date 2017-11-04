@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import { Subject } from 'rxjs/Rx';
 
-@Injectable()
+declare var FB: any;
 
+@Injectable()
 
 export class WebService{
 
@@ -29,7 +30,7 @@ export class WebService{
   private stockDetailStore = {
     Table: null,
     Hist: null,
-    PV: null,
+    Price: null,
     SMA: null,
     EMA: null,
     RSI: null,
@@ -66,7 +67,7 @@ export class WebService{
   stocknews = this.stocknewsSubject.asObservable();
 
   private requestStatusStore = {
-    PV: 'loading',
+    Price: 'loading',
     SMA: 'loading',
     EMA: 'loading',
     RSI: 'loading',
@@ -121,7 +122,7 @@ export class WebService{
     symbol = (symbol) ? '/' + symbol : '';
     if(!(symbol)) return;
 
-    this.requestStatusStore.PV = 'loading';
+    this.requestStatusStore.Price = 'loading';
     this.requestStatusStore.SMA = 'loading';
     this.requestStatusStore.EMA = 'loading';
     this.requestStatusStore.RSI = 'loading';
@@ -133,188 +134,224 @@ export class WebService{
     this.requestStatusStore.news = 'loading';
     this.requestStatusSubject.next(this.requestStatusStore);
 
-    this.http.get( this.BASE_URL + '/alpha' + symbol + '/PV').subscribe(response => {
+
+    this.http.get( this.BASE_URL + '/alpha' + symbol + '/Price').subscribe(response => {
       // update the detailed stock information
       if(response.json().error) {
-        this.requestStatusStore.PV = 'error';
+        this.requestStatusStore.Price = 'error';
         this.requestStatusSubject.next(this.requestStatusStore);
       }
       else {
-        this.stockDetailStore.PV = response.json().HCobj;
+        this.stockDetailStore.Price = response.json().HCobj;
         this.stockDetailStore.Hist = response.json().HSobj;
         this.stockDetailStore.Table = response.json().TABobj;
-        this.stockPVSubject.next(this.stockDetailStore.PV);
+        this.stockPVSubject.next(this.stockDetailStore.Price);
         this.stockHistSubject.next(this.stockDetailStore.Hist);
         this.stockInfoTabSubject.next(this.stockDetailStore.Table);
 
-        this.requestStatusStore.PV = 'OK';
+        this.requestStatusStore.Price = 'OK';
         this.requestStatusSubject.next(this.requestStatusStore);
       }
     }, () => {
-      this.requestStatusStore.PV = 'error';
+      this.requestStatusStore.Price = 'error';
       this.requestStatusSubject.next(this.requestStatusStore);
     });
 
-    this.http.get( this.BASE_URL + '/alpha' + symbol + '/SMA').subscribe(response => {
-      // update the detailed stock information
-      if(response.json().error) {
-        this.requestStatusStore.SMA = 'error';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-      else {
-        this.stockDetailStore.SMA = response.json().HCobj;
-        this.stockSMASubject.next(this.stockDetailStore.SMA);
+    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/SMA').subscribe(response => {
+    //   // update the detailed stock information
+    //   if(response.json().error) {
+    //     this.requestStatusStore.SMA = 'error';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    //   else {
+    //     this.stockDetailStore.SMA = response.json().HCobj;
+    //     this.stockSMASubject.next(this.stockDetailStore.SMA);
+    //
+    //     this.requestStatusStore.SMA = 'OK';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    // }, () => {
+    //   this.requestStatusStore.SMA = 'error';
+    //   this.requestStatusSubject.next(this.requestStatusStore);
+    // });
+    //
+    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/EMA').subscribe(response => {
+    //   // update the detailed stock information
+    //   if(response.json().error) {
+    //     this.requestStatusStore.EMA = 'error';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    //   else {
+    //     this.stockDetailStore.EMA = response.json().HCobj;
+    //     this.stockEMASubject.next(this.stockDetailStore.EMA);
+    //
+    //     this.requestStatusStore.EMA = 'OK';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    // }, () => {
+    //   this.requestStatusStore.EMA = 'error';
+    //   this.requestStatusSubject.next(this.requestStatusStore);
+    // });
+    //
+    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/RSI').subscribe(response => {
+    //   // update the detailed stock information
+    //   if(response.json().error) {
+    //     this.requestStatusStore.RSI = 'error';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    //   else {
+    //     this.stockDetailStore.RSI = response.json().HCobj;
+    //     this.stockRSISubject.next(this.stockDetailStore.RSI);
+    //
+    //     this.requestStatusStore.RSI = 'OK';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    // }, () => {
+    //   this.requestStatusStore.RSI = 'error';
+    //   this.requestStatusSubject.next(this.requestStatusStore);
+    // });
+    //
+    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/ADX').subscribe(response => {
+    //   // update the detailed stock information
+    //   if(response.json().error) {
+    //     this.requestStatusStore.ADX = 'error';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    //   else {
+    //     this.stockDetailStore.ADX = response.json().HCobj;
+    //     this.stockADXSubject.next(this.stockDetailStore.ADX);
+    //
+    //     this.requestStatusStore.ADX = 'OK';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    // }, () => {
+    //   this.requestStatusStore.ADX = 'error';
+    //   this.requestStatusSubject.next(this.requestStatusStore);
+    // });
+    //
+    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/CCI').subscribe(response => {
+    //   // update the detailed stock information
+    //   if(response.json().error) {
+    //     this.requestStatusStore.CCI = 'error';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    //   else {
+    //     this.stockDetailStore.CCI = response.json().HCobj;
+    //     this.stockCCISubject.next(this.stockDetailStore.CCI);
+    //
+    //     this.requestStatusStore.CCI = 'OK';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    // }, () => {
+    //   this.requestStatusStore.CCI = 'error';
+    //   this.requestStatusSubject.next(this.requestStatusStore);
+    // });
+    //
+    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/BBANDS').subscribe(response => {
+    //   // update the detailed stock information
+    //   if(response.json().error) {
+    //     this.requestStatusStore.BBANDS = 'error';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    //   else {
+    //     this.stockDetailStore.BBANDS = response.json().HCobj;
+    //     this.stockBBANDSSubject.next(this.stockDetailStore.BBANDS);
+    //
+    //     this.requestStatusStore.BBANDS = 'OK';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    // }, () => {
+    //   this.requestStatusStore.BBANDS = 'error';
+    //   this.requestStatusSubject.next(this.requestStatusStore);
+    // });
+    //
+    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/STOCH').subscribe(response => {
+    //   // update the detailed stock information
+    //   if(response.json().error) {
+    //     this.requestStatusStore.STOCH = 'error';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    //   else {
+    //     this.stockDetailStore.STOCH = response.json().HCobj;
+    //     this.stockSTOCHSubject.next(this.stockDetailStore.STOCH);
+    //
+    //     this.requestStatusStore.STOCH = 'OK';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    // }, () => {
+    //   this.requestStatusStore.STOCH = 'error';
+    //   this.requestStatusSubject.next(this.requestStatusStore);
+    // });
+    //
+    // this.http.get( this.BASE_URL + '/alpha' + symbol + '/MACD').subscribe(response => {
+    //   // update the detailed stock information
+    //   if(response.json().error) {
+    //     this.requestStatusStore.MACD = 'error';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    //   else {
+    //     this.stockDetailStore.MACD = response.json().HCobj;
+    //     this.stockMACDSubject.next(this.stockDetailStore.MACD);
+    //
+    //     this.requestStatusStore.MACD = 'OK';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    // }, () => {
+    //   this.requestStatusStore.MACD = 'error';
+    //   this.requestStatusSubject.next(this.requestStatusStore);
+    // });
 
-        this.requestStatusStore.SMA = 'OK';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-    }, () => {
-      this.requestStatusStore.SMA = 'error';
-      this.requestStatusSubject.next(this.requestStatusStore);
-    });
+    // this.http.get( this.BASE_URL + '/news' + symbol).subscribe(response => {
+    //   // update the detailed stock information
+    //   if(response.json().error) {
+    //     this.requestStatusStore.news = 'error';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    //   else {
+    //     this.stockDetailStore.news = response.json();
+    //     this.stocknewsSubject.next(this.stockDetailStore.news);
+    //
+    //     this.requestStatusStore.news = 'OK';
+    //     this.requestStatusSubject.next(this.requestStatusStore);
+    //   }
+    // }, () => {
+    //   this.requestStatusStore.news = 'error';
+    //   this.requestStatusSubject.next(this.requestStatusStore);
+    // });
+  }
 
-    this.http.get( this.BASE_URL + '/alpha' + symbol + '/EMA').subscribe(response => {
-      // update the detailed stock information
-      if(response.json().error) {
-        this.requestStatusStore.EMA = 'error';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-      else {
-        this.stockDetailStore.EMA = response.json().HCobj;
-        this.stockEMASubject.next(this.stockDetailStore.EMA);
+  fbshare(type) {
+    const exportURL = 'http://export.highcharts.com/';
+    let data = {
+      options: JSON.stringify(this.stockDetailStore[type]),
+      filename: 'mychart',
+      type: 'image/png',
+      async: true
+    };
+    this.http.post(exportURL ,data).subscribe(response => {
+      let retURL = exportURL+response['_body'];
+      console.log(retURL);
+      FB.init({
+        appId: '1340180782759111',
+        status: true,
+        cookie: true,
+        xfbml: true,
+        version: 'v2.1'
+      });
 
-        this.requestStatusStore.EMA = 'OK';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-    }, () => {
-      this.requestStatusStore.EMA = 'error';
-      this.requestStatusSubject.next(this.requestStatusStore);
-    });
-
-    this.http.get( this.BASE_URL + '/alpha' + symbol + '/RSI').subscribe(response => {
-      // update the detailed stock information
-      if(response.json().error) {
-        this.requestStatusStore.RSI = 'error';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-      else {
-        this.stockDetailStore.RSI = response.json().HCobj;
-        this.stockRSISubject.next(this.stockDetailStore.RSI);
-
-        this.requestStatusStore.RSI = 'OK';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-    }, () => {
-      this.requestStatusStore.RSI = 'error';
-      this.requestStatusSubject.next(this.requestStatusStore);
-    });
-
-    this.http.get( this.BASE_URL + '/alpha' + symbol + '/ADX').subscribe(response => {
-      // update the detailed stock information
-      if(response.json().error) {
-        this.requestStatusStore.ADX = 'error';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-      else {
-        this.stockDetailStore.ADX = response.json().HCobj;
-        this.stockADXSubject.next(this.stockDetailStore.ADX);
-
-        this.requestStatusStore.ADX = 'OK';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-    }, () => {
-      this.requestStatusStore.ADX = 'error';
-      this.requestStatusSubject.next(this.requestStatusStore);
-    });
-
-    this.http.get( this.BASE_URL + '/alpha' + symbol + '/CCI').subscribe(response => {
-      // update the detailed stock information
-      if(response.json().error) {
-        this.requestStatusStore.CCI = 'error';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-      else {
-        this.stockDetailStore.CCI = response.json().HCobj;
-        this.stockCCISubject.next(this.stockDetailStore.CCI);
-
-        this.requestStatusStore.CCI = 'OK';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-    }, () => {
-      this.requestStatusStore.CCI = 'error';
-      this.requestStatusSubject.next(this.requestStatusStore);
-    });
-
-    this.http.get( this.BASE_URL + '/alpha' + symbol + '/BBANDS').subscribe(response => {
-      // update the detailed stock information
-      if(response.json().error) {
-        this.requestStatusStore.BBANDS = 'error';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-      else {
-        this.stockDetailStore.BBANDS = response.json().HCobj;
-        this.stockBBANDSSubject.next(this.stockDetailStore.BBANDS);
-
-        this.requestStatusStore.BBANDS = 'OK';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-    }, () => {
-      this.requestStatusStore.BBANDS = 'error';
-      this.requestStatusSubject.next(this.requestStatusStore);
-    });
-
-    this.http.get( this.BASE_URL + '/alpha' + symbol + '/STOCH').subscribe(response => {
-      // update the detailed stock information
-      if(response.json().error) {
-        this.requestStatusStore.STOCH = 'error';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-      else {
-        this.stockDetailStore.STOCH = response.json().HCobj;
-        this.stockSTOCHSubject.next(this.stockDetailStore.STOCH);
-
-        this.requestStatusStore.STOCH = 'OK';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-    }, () => {
-      this.requestStatusStore.STOCH = 'error';
-      this.requestStatusSubject.next(this.requestStatusStore);
-    });
-
-    this.http.get( this.BASE_URL + '/alpha' + symbol + '/MACD').subscribe(response => {
-      // update the detailed stock information
-      if(response.json().error) {
-        this.requestStatusStore.MACD = 'error';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-      else {
-        this.stockDetailStore.MACD = response.json().HCobj;
-        this.stockMACDSubject.next(this.stockDetailStore.MACD);
-
-        this.requestStatusStore.MACD = 'OK';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-    }, () => {
-      this.requestStatusStore.MACD = 'error';
-      this.requestStatusSubject.next(this.requestStatusStore);
-    });
-
-    this.http.get( this.BASE_URL + '/news' + symbol).subscribe(response => {
-      // update the detailed stock information
-      if(response.json().error) {
-        this.requestStatusStore.news = 'error';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-      else {
-        this.stockDetailStore.news = response.json();
-        this.stocknewsSubject.next(this.stockDetailStore.news);
-
-        this.requestStatusStore.news = 'OK';
-        this.requestStatusSubject.next(this.requestStatusStore);
-      }
-    }, () => {
-      this.requestStatusStore.news = 'error';
-      this.requestStatusSubject.next(this.requestStatusStore);
+      FB.ui({
+        appId: 714520475409811,
+        method: 'feed',
+        picture: retURL
+      }, (response) => {
+        if (response && !response.error_message) {
+          console.log('succeed');
+          // succeed
+        } else {
+          console.log('fail');
+          // fail
+        }
+      });
     });
   }
 

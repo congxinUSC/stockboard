@@ -34,7 +34,7 @@ api.get('/lookup/:shortcut', (req, res) => {
 // Approach 1 deal with the functions separately:
 
 // TODO: replace these with a single function getALL
-api.get('/alpha/:symbol/PV', alpha.getPV());
+api.get('/alpha/:symbol/Price', alpha.getPV());
 api.get('/alpha/:symbol/SMA', alpha.getSMA());
 api.get('/alpha/:symbol/EMA', alpha.getEMA());
 api.get('/alpha/:symbol/RSI', alpha.getRSI());
@@ -53,7 +53,7 @@ api.get('/alpha/:symbol', (req, res) => {
     '&symbol=' + req.params.symbol +
     '&apikey=W6U249N3KNYWN2TB'; // should be constant
 
-  const PV = '&function=TIME_SERIES_DAILY$outputsize=full';
+  const Price = '&function=TIME_SERIES_DAILY$outputsize=full';
   const SHAREDPM =
     '&interval=daily'+
     '&time_period=10'+
@@ -67,7 +67,7 @@ api.get('/alpha/:symbol', (req, res) => {
   const STOCH = '&function=STOCH&interval=daily';
 
 
-  request.get(base + params + PV, respJSON(res));
+  request.get(base + params + Price, respJSON(res));
   // TODO: duplicate this ^ function for all parameters
 });
 */

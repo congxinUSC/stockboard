@@ -12,7 +12,7 @@ import { WebService } from './web.service';
               <b>Stock Details</b>
             </div>
             <div class="col-xs-6 text-right">
-              
+              <fb-share></fb-share>
             </div>
           </div>
           <DetailTab></DetailTab>

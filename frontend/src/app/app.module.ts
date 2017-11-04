@@ -29,6 +29,7 @@ import { NewsFeedComponent } from './newsFeed.component';
 import { HistChartComponent } from './histChart.component';
 import { DetailComponent } from './detail.component';
 import { FbshareComponent } from './fbshare.component';
+import {LocalStorageService} from './localstorage.service';
 
 let routes = [
   {
@@ -81,7 +82,7 @@ let routes = [
     MatAutocompleteModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [WebService],
+  providers: [WebService, LocalStorageService],
   bootstrap: [AppComponent]
 
 })

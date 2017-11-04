@@ -10,6 +10,10 @@ export class LocalStorageService {
   private favListSubject = new Subject();
   favList = this.favListSubject.asObservable();
 
+  private selectedStore;
+  private selectedSubject = new Subject();
+  selected = this.selectedSubject.asObservable();
+
   ngOnInit() {
     this.favListStore = JSON.parse(localStorage.getItem('favlist'));
     this.favListSubject.next(this.favListStore);
@@ -32,4 +36,9 @@ export class LocalStorageService {
       localStorage.setItem('favlist', JSON.stringify(this.favListStore));
     }
   }
+  setSelected(selected) {
+    this.selectedStore=selected;
+    this.selectedSubject.next(this.selectedStore);
+  }
+
 }
