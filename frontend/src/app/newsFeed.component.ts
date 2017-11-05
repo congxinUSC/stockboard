@@ -17,9 +17,4 @@ export class NewsFeedComponent {
       this.newsobj=obj;
     });
   }
-
-  // TODO: make the process async
-  post() {
-    this.webService.getStockDetail('AAPL');
-  }
 }

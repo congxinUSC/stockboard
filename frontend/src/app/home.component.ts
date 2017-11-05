@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {WebService} from './web.service';
 
 @Component({
   selector: 'home',
@@ -7,10 +8,16 @@ import { Component } from '@angular/core';
     <messages></messages>
     <lookup></lookup>
     <favlist></favlist>
-    <Detail></Detail>
-    <NewsFeed></NewsFeed>
-    <histChart></histChart>
+    <button (click)="post()" mat-button color="primary">POST</button>
+    <Stock></Stock>
   `
   ,
 })
-export class HomeComponent {}
+export class HomeComponent {
+
+  constructor(public webService:WebService){}
+  // TODO: make the process async
+  post() {
+    this.webService.getStockDetail('AAPL');
+  }
+}

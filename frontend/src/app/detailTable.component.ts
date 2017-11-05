@@ -5,7 +5,7 @@ import * as $ from 'jquery';
 @Component({
   selector: 'DetailTab',
   templateUrl: './detailTable.component.html',
-  styleUrls: ['./detailTable.css']
+  styleUrls: ['./detailTable.component.css']
 })
 export class DetailTableComponent {
 

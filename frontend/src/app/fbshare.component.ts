@@ -5,10 +5,9 @@ import { LocalStorageService } from './localstorage.service';
 @Component({
   selector: 'fb-share',
   template: `
-    <!--<button (click)="show()" mat-button [disabled]="'Price' !== selection" color="primary">test</button>-->
-    <!--<button (click)="show()" mat-button [disabled]="null === chartStatus" color="primary">test</button>-->
-    <button (click)="show()" mat-button [disabled]="'OK' !== chartStatus[selection]" color="primary">test</button>
-    <!--<button (click)="show()" mat-button color="primary">test</button>-->
+      <button (click)="share()" [disabled]="'OK' !== chartStatus[selection]" class="btn btn-default" type="button">
+        <i class="fa fa-facebook-square" style="font-size:100%; color:#3B5998"></i>
+      </button>
   `,
 })
 
@@ -38,10 +37,9 @@ export class FbshareComponent {
     });
   }
 
-
-  show(){
-    console.log(this.selection);
-    console.log(this.chartStatus);
-    // this.charts.webService.fbshare(this.charts.selected);
+  share(){
+    // console.log(this.selection);
+    // console.log(this.chartStatus);
+    this.webService.fbshare(this.selection);
   }
 }

@@ -7,7 +7,7 @@ import { Subject } from 'rxjs/Rx';
 export class LocalStorageService {
   // Array of elements
   private favListStore = [];
-  private favListSubject = new Subject();
+  private favListSubject = new Subject<any[]>();
   favList = this.favListSubject.asObservable();
 
   private selectedStore;
@@ -18,23 +18,21 @@ export class LocalStorageService {
     this.favListStore = JSON.parse(localStorage.getItem('favlist'));
     this.favListSubject.next(this.favListStore);
   }
-  setFavList(symbol) {
-    symbol = symbol.toUpperCase();
-    let i = this.favListStore.indexOf(symbol);
-    if( i === -1){
+  checkFavList(symbol) {
+    return this.favListStore.indexOf(symbol);
+  }
+  setFavItem(symbol) {
+    console.log('in setFavItem');
+    if(-1 === this.checkFavList(symbol)){
       this.favListStore.push(symbol);
       this.favListSubject.next(this.favListStore);
       localStorage.setItem('favlist', JSON.stringify(this.favListStore));
     }
   }
   deleteFavItem(symbol) {
-    symbol = symbol.toUpperCase();
-    let i = this.favListStore.indexOf(symbol);
-    if( i === -1){
-      this.favListStore.slice(i, 1);
-      this.favListSubject.next(this.favListStore);
-      localStorage.setItem('favlist', JSON.stringify(this.favListStore));
-    }
+    this.favListStore = this.favListStore.filter(item=>item!==symbol);
+    this.favListSubject.next(this.favListStore);
+    localStorage.setItem('favlist', JSON.stringify(this.favListStore));
   }
   setSelected(selected) {
     this.selectedStore=selected;

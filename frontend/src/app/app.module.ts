@@ -12,10 +12,12 @@ import {
   MatTabsModule
   } from '@angular/material';
 
+import { WebService } from './web.service';
+import { LocalStorageService } from './localstorage.service';
+
 import { AppComponent } from './app.component';
 import { MessagesComponent } from './messages.component';
 import { NewMessageComponent } from './new-message.component';
-import { WebService } from './web.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './nav.component';
@@ -29,7 +31,8 @@ import { NewsFeedComponent } from './newsFeed.component';
 import { HistChartComponent } from './histChart.component';
 import { DetailComponent } from './detail.component';
 import { FbshareComponent } from './fbshare.component';
-import {LocalStorageService} from './localstorage.service';
+import { LikeBtnComponent } from './likeBtn.component';
+import { StockComponent } from './stock.component';
 
 let routes = [
   {
@@ -65,7 +68,9 @@ let routes = [
     DetailTableComponent,
     NewsFeedComponent,
     FbshareComponent,
-    DetailComponent
+    LikeBtnComponent,
+    DetailComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,

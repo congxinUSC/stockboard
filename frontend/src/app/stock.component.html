@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+  <div class="panel-heading row">
+    <div class="col-xs-1">
+      <button><span class="glyphicon glyphicon-chevron-left"></span></button>
+    </div>
+    <div class="col-xs-11">
+      <p class="text-center"><b>Stock Details</b></p>
+    </div>
+  </div>
+  <div class="panel-body">
+    <ul id="stock-container" class="nav nav-pills" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#Current_stock" aria-controls="Current_stock" role="tab" data-toggle="tab" (click)="switchTab($event)">
+          <i class="glyphicon glyphicon-dashboard"></i>
+          Current Stock
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#Historical_chart" aria-controls="Historical_chart" role="tab" data-toggle="tab" (click)="switchTab($event)">
+          <i class="glyphicon glyphicon-stats"></i>
+          Historical Chart
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#News_feed" aria-controls="News_feed" role="tab" data-toggle="tab" (click)="switchTab($event)">
+          <i class="glyphicon glyphicon-link"></i>
+          News Feed
+        </a>
+      </li>
+    </ul>
+    <hr/>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="Current_stock">
+        <Detail></Detail>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="Historical_chart">
+        <histChart></histChart>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="News_feed">
+        <NewsFeed></NewsFeed>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
