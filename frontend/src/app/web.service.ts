@@ -3,17 +3,15 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import { Subject } from 'rxjs/Rx';
 
-declare var FB: any;
+// TODO: Clean UP!
+
+declare let FB: any;
 
 @Injectable()
 
 export class WebService{
 
   BASE_URL = 'http://localhost:4201/api';
-
-  private messagesStore = [];
-  private messageSubject = new Subject();
-  messages = this.messageSubject.asObservable();
 
   // Array of elements
   private AutoCompleteListStore = [];
@@ -84,21 +82,6 @@ export class WebService{
   currentSymbol:string;
   constructor (private http: Http) {}
 
-  getMessages (user) {
-    user = (user) ? '/' + user : '';
-    this.http.get(this.BASE_URL + '/messages' + user).subscribe(response => {
-      this.messagesStore = response.json();
-      this.messageSubject.next(this.messagesStore);
-    }, this.handleError);
-  }
-
-  postMessage (message) {
-    this.http.post(this.BASE_URL + '/messages', message).subscribe(response => {
-      this.messagesStore.push(response.json());
-      this.messageSubject.next(this.messagesStore);
-    }, this.handleError);
-  }
-
   getSymbolList (short) {
     short = (short) ? '/' + short : '';
     if(!(short)) return;
@@ -114,6 +97,7 @@ export class WebService{
     if(!(symbol)) return;
     this.http.get(this.BASE_URL + '/short' + symbol).subscribe( response => {
       this.stockBriefStore.set(response.json().Symbol ,response.json());
+      // this.stockBriefSubject.next(this.stockBriefStore);
       this.stockBriefSubject.next(Array.from(this.stockBriefStore));
     }, this.handleError);
   }

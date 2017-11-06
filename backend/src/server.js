@@ -86,7 +86,7 @@ api.get('/news/:symbol', (req, res) => {
             link: list[i].link[0],
             author: list[i]['sa:author_name'][0],
             pubDate: list[i].pubDate[0]
-          }
+          };
           retJSON.push(tmp);
           count++;
         }

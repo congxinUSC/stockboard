@@ -2,26 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32d14093-d65a-48c3-9441-b6f952eaf437" name="Default" comment="started angular/node project">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/favlist.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/lookup.component.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/src/app/home.component.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/src/app/messages.component.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/src/app/nav.component.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/src/app/new-message.component.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/src/app/register.component.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/src/app/register.component.ts" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package-lock.json" afterPath="$PROJECT_DIR$/frontend/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package.json" afterPath="$PROJECT_DIR$/frontend/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/src/server.js" afterPath="$PROJECT_DIR$/backend/src/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/charts.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/charts.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/detail.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/detail.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/detailTable.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/detailTable.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/charts.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/charts.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/detail.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/detail.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/detailTable.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/detailTable.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/favlist.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/favlist.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/favlist.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/favlist.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/histChart.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/histChart.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/fbshare.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/fbshare.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/likeBtn.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/likeBtn.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/localstorage.service.ts" afterPath="$PROJECT_DIR$/frontend/src/app/localstorage.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/lookup.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/lookup.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/newsFeed.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/newsFeed.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/stock.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/stock.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/newsFeed.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/newsFeed.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/stock.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/stock.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/web.service.ts" afterPath="$PROJECT_DIR$/frontend/src/app/web.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/styles.css" afterPath="$PROJECT_DIR$/frontend/src/styles.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,70 +40,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="favlist.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/favlist.component.ts">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/src/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="17" />
+            <state relative-caret-position="225">
+              <caret line="79" column="44" lean-forward="true" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
               <folding>
-                <element signature="e#0#42#0" expanded="true" />
+                <element signature="e#756#899#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detailTable.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/detailTable.component.html">
+      <file leaf-file-name="alphaAPI.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/src/alphaAPI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-25">
-              <caret line="27" column="78" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="78" />
-              <folding>
-                <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detailTable.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/detailTable.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="828">
+              <caret line="47" column="84" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="47" selection-end-column="84" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="favlist.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/favlist.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="favlist.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/favlist.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="25" column="43" lean-forward="true" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/web.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="114" column="46" lean-forward="false" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="46" />
-              <folding>
-                <element signature="n#!!block;n#getStockDetail#0;n#WebService#0" expanded="false" />
-                <element signature="e#5522#5609#0" expanded="false" />
-                <element signature="n#!!block;n#fbshare#0;n#WebService#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -117,8 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>message</find>
-      <find>formcontrol</find>
       <find>column</find>
       <find>requestStatus</find>
       <find>stockinfotab</find>
@@ -145,23 +102,14 @@
       <find>console.log</find>
       <find>stockBriefStore</find>
       <find>favListSubject</find>
-      <find>stockBriefSubject</find>
       <find>favList</find>
+      <find>stockBriefSubject</find>
+      <find>FormControl</find>
+      <find>form</find>
     </findStrings>
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="cd ../frontend/" />
-      <command text="ng serve -o" />
-      <command text="ls" />
-      <command text="cd ../backend/" />
-      <command text="npm start" />
-      <command text="cd ../frontend/" />
-      <command text="ng serve -o" />
-      <command text="cd ../frontend/" />
-      <command text="ng serve -o" />
-      <command text="cd ../frontend/" />
-      <command text="ng serve" />
       <command text="ls" />
       <command text="cd frontend/" />
       <command text="ng serve -o" />
@@ -176,6 +124,17 @@
       <command text="ng serve" />
       <command text="cd ../backend/" />
       <command text="npm start" />
+      <command text="ls" />
+      <command text="npm start" />
+      <command text="cd ../frontend/" />
+      <command text="ng serve" />
+      <command text="ng build" />
+      <command text="start" />
+      <command text="npm start" />
+      <command text="ls" />
+      <command text="ng serve" />
+      <command text="ls" />
+      <command text="ng serve" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -192,9 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/tsconfig.json" />
-        <option value="$PROJECT_DIR$/frontend/src/app/new_message.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/register.component.html" />
         <option value="$PROJECT_DIR$/backend/server.js" />
         <option value="$PROJECT_DIR$/backend/.babelrc" />
         <option value="$PROJECT_DIR$/backend/dist/server.js" />
@@ -204,45 +160,48 @@
         <option value="$PROJECT_DIR$/frontend/src/app/register.components.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/new-message.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/app.component.css" />
-        <option value="$PROJECT_DIR$/frontend/src/styles.css" />
         <option value="$PROJECT_DIR$/frontend/package.json" />
         <option value="$PROJECT_DIR$/frontend/src/app/table.component.ts.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/chats.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/table.component.html" />
-        <option value="$PROJECT_DIR$/backend/src/server.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/table.component.ts" />
         <option value="$PROJECT_DIR$/backend/src/alphaAPI.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/histChart.component.ts.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/histChart.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/detaiTable.css" />
         <option value="$PROJECT_DIR$/frontend/src/app/detailTable.css" />
-        <option value="$PROJECT_DIR$/frontend/src/app/charts.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/fbshare.css" />
-        <option value="$PROJECT_DIR$/frontend/src/app/detailTable.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/fbshare.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/nav.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/stock.component.ts.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/newsFeed.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/home.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/detail.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/index.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/detail.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/detailTable.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/charts.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/newsFeed.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/histChart.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/likeBtn.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/stock.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/stock.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/lookup.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/localstorage.service.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/web.service.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/favlist.component.css" />
+        <option value="$PROJECT_DIR$/frontend/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/charts.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/detail.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/detailTable.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/fbshare.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/home.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/likeBtn.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/localstorage.service.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/messages.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/nav.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/newsFeed.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/stock.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/web.service.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/styles.css" />
+        <option value="$PROJECT_DIR$/frontend/src/app/register.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/lookup.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/lookup.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/favlist.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/favlist.component.html" />
+        <option value="$PROJECT_DIR$/backend/src/server.js" />
       </list>
     </option>
   </component>
@@ -269,7 +228,9 @@
     <option name="width" value="1845" />
     <option name="height" value="1056" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -383,12 +344,12 @@
       <workItem from="1509672928011" duration="3974000" />
       <workItem from="1509749817172" duration="45039000" />
       <workItem from="1509832959834" duration="21152000" />
-      <workItem from="1509917493120" duration="35809000" />
+      <workItem from="1509917493120" duration="51871000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268222000" />
+    <option name="totallyTimeSpent" value="284284000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -401,7 +362,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-352" y="24" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19868995" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -442,18 +402,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -494,20 +447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -554,89 +493,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/register.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/register.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/new-message.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="15" column="75" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="75" />
-          <folding>
-            <marker date="1509433961882" expanded="true" signature="167:652" ph="..." />
-            <marker date="1509433961882" expanded="true" signature="192:636" ph="..." />
-            <marker date="1509433961882" expanded="true" signature="222:328" ph="..." />
-            <marker date="1509433961882" expanded="true" signature="358:479" ph="..." />
-            <marker date="1509433961882" expanded="true" signature="506:610" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/histChart.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/alphaAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="47" column="84" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="47" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/fbshare.css" />
-    <entry file="file://$PROJECT_DIR$/backend/src/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="77" column="35" lean-forward="false" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
-          <folding>
-            <element signature="e#756#899#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/newsFeed.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/charts.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1422">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/detailTable.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -645,71 +502,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/detail.component.ts">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="62" column="26" lean-forward="false" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#58#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/newsFeed.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/histChart.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/messages.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="75" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <marker date="1509048537774" expanded="true" signature="248:472" ph="..." />
-            <marker date="1509048537774" expanded="true" signature="278:461" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/nav.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="35" />
-          <folding>
-            <marker date="1509846883487" expanded="true" signature="106:311" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/home.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -721,37 +518,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/detail.component.html">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/charts.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="16" lean-forward="true" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        <state relative-caret-position="72">
+          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/stock.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/localstorage.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="37" column="26" lean-forward="false" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -774,86 +545,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/fbshare.component.ts">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/detail.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <marker date="1509844464741" expanded="true" signature="314:414" ph="..." />
-            <marker date="1509844464741" expanded="true" signature="364:393" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/likeBtn.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="37" column="3" lean-forward="true" selection-start-line="28" selection-start-column="2" selection-end-line="37" selection-end-column="3" />
-          <folding>
-            <marker date="1509939487052" expanded="true" signature="291:730" ph="..." />
-            <marker date="1509939487052" expanded="true" signature="463:571" ph="..." />
-            <marker date="1509939487052" expanded="true" signature="516:545" ph="..." />
-            <marker date="1509939487052" expanded="true" signature="602:716" ph="..." />
-            <marker date="1509939487052" expanded="true" signature="661:684" ph="..." />
-            <marker date="1509939487052" expanded="true" signature="661:690" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/stock.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        <state relative-caret-position="36">
+          <caret line="2" column="114" lean-forward="false" selection-start-line="2" selection-start-column="114" selection-end-line="2" selection-end-column="114" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.html">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/detail.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="36">
+          <caret line="2" column="16" lean-forward="true" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/lookup.component.ts">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/detailTable.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="53" column="3" lean-forward="true" selection-start-line="48" selection-start-column="2" selection-end-line="53" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-            <marker date="1509960283669" expanded="true" signature="260:877" ph="..." />
-            <marker date="1509960283669" expanded="true" signature="280:877" ph="..." />
-            <marker date="1509960283669" expanded="true" signature="283:792" ph="..." />
-            <marker date="1509960283669" expanded="true" signature="376:532" ph="..." />
-            <marker date="1509960283669" expanded="true" signature="583:768" ph="..." />
-            <marker date="1509960283669" expanded="true" signature="687:740" ph="..." />
-          </folding>
+        <state relative-caret-position="36">
+          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/web.service.ts">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/detailTable.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="114" column="46" lean-forward="false" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="46" />
+        <state relative-caret-position="396">
+          <caret line="27" column="78" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="78" />
           <folding>
-            <element signature="n#!!block;n#getStockDetail#0;n#WebService#0" expanded="false" />
-            <element signature="e#5522#5609#0" expanded="false" />
-            <element signature="n#!!block;n#fbshare#0;n#WebService#0" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -874,31 +595,247 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/detailTable.component.html">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/fbshare.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25">
-          <caret line="27" column="78" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="78" />
+        <state relative-caret-position="72">
+          <caret line="4" column="58" lean-forward="false" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
           <folding>
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#0#41#0" expanded="true" />
+            <marker date="1509968773237" expanded="true" signature="374:474" ph="..." />
+            <marker date="1509968773237" expanded="true" signature="424:453" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/favlist.component.ts">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/histChart.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/histChart.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/home.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/likeBtn.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+          <folding>
+            <marker date="1509968920991" expanded="true" signature="330:769" ph="..." />
+            <marker date="1509968920991" expanded="true" signature="502:610" ph="..." />
+            <marker date="1509968920991" expanded="true" signature="555:584" ph="..." />
+            <marker date="1509968920991" expanded="true" signature="641:755" ph="..." />
+            <marker date="1509968920991" expanded="true" signature="700:723" ph="..." />
+            <marker date="1509968920991" expanded="true" signature="700:729" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/localstorage.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/new-message.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="15" column="75" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/newsFeed.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/newsFeed.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="43" lean-forward="false" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/nav.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/messages.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="17" />
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/stock.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/stock.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/register.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/register.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/favlist.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="25" column="43" lean-forward="true" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+        <state relative-caret-position="468">
+          <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/favlist.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/web.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1458">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#getStockDetail#0;n#WebService#0" expanded="false" />
+            <element signature="e#4977#5064#0" expanded="false" />
+            <element signature="n#!!block;n#fbshare#0;n#WebService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="55" lean-forward="false" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/lookup.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="36" column="10" lean-forward="false" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/lookup.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="73" lean-forward="true" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#b#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/alphaAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="47" column="84" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="47" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="79" column="44" lean-forward="true" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
+          <folding>
+            <element signature="e#756#899#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

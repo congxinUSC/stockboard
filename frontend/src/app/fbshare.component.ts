@@ -2,6 +2,8 @@ import { Component } from '@angular/core'
 import { WebService } from './web.service';
 import { LocalStorageService } from './localstorage.service';
 
+// TODO: handle with the sharing result. icon size problem
+
 @Component({
   selector: 'fb-share',
   template: `

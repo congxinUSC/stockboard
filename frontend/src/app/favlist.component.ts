@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { WebService } from './web.service';
 import { LocalStorageService } from './localstorage.service';
-import {forEach} from '@angular/router/src/utils/collection';
+
+// TODO: sorting favList. right button color, error handling
 
 @Component({
   selector: 'favlist',
@@ -12,6 +13,9 @@ export class FavListComponent {
 
   raise_arrow_src='http://cs-server.usc.edu:45678/hw/hw8/images/Up.png';
   fall_arrow_src='http://cs-server.usc.edu:45678/hw/hw8/images/Down.png';
+
+  order='Ascending';
+  sortBy='Default';
 
   favSymbolList=[];
 
@@ -45,11 +49,12 @@ export class FavListComponent {
         });
     });
 
-
     (<any>$('input[type=checkbox]')).bootstrapToggle();
     $('input[type=checkbox]').change((event)=>{
       this.toggleValueChanged((<HTMLInputElement>(event.target)).checked);
     });
+
+    // $('select>option:eq(0)').prop('selected', true);
   }
 
   toggleValueChanged(val:boolean){
@@ -60,6 +65,20 @@ export class FavListComponent {
     } else {
       clearInterval(this.intervalHandler);
     }
+  }
+
+  comparergen(key, order) {
+    return order==='Ascending'?
+      (a,b)=>{
+        if(a[key]>b[key]) return 1;
+        else if(a[key]<b[key]) return -1;
+        else return 0;
+      }:
+      (b,a)=>{
+        if(a[key]>b[key]) return 1;
+        else if(a[key]<b[key]) return -1;
+        else return 0;
+      }
   }
 
   refresh () {

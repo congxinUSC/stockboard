@@ -6,6 +6,7 @@ import * as HighchartsExporting from 'highcharts/modules/exporting';
 
 HighchartsExporting(Highcharts);
 
+// TODO: deal with responsive issure
 
 @Component({
   selector: 'charts',

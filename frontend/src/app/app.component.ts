@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+// TODO: move heavy things to an independent component.
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

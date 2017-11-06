@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from './localstorage.service';
 import { WebService } from './web.service';
 
@@ -9,12 +8,7 @@ import { WebService } from './web.service';
 })
 export class StockComponent {
 
-  constructor(public webService: WebService, public localStorageService : LocalStorageService, private route: ActivatedRoute) {}
-
-  ngOnInit () {
-    let symbol = this.route.snapshot.params.symbol;
-    this.webService.getStockDetail(symbol);
-  }
+  constructor(public webService: WebService, public localStorageService : LocalStorageService) {}
 
   switchTab(obj){
     console.log(obj);

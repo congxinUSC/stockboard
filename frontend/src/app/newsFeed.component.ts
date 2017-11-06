@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { WebService } from './web.service';
 
-
 @Component({
   selector: 'NewsFeed',
   templateUrl: './newsFeed.component.html',

@@ -13,6 +13,21 @@
     </div>
   </div>
   <div class="panel-body">
+    <b>Sort by</b>
+    <select id="sortBy" [(ngModel)]="sortBy">
+      <option value="Default">Default</option>
+      <option value="Symbol">Symbol</option>
+      <option value="LastPrice">Price</option>
+      <option value="Change">Change</option>
+      <option value="ChangePercent">Change Percent</option>
+      <option value="Volume">Volume</option>
+    </select>
+    <b>Order</b>
+    <select id="order" [(ngModel)]="order" [disabled]="sortBy==='Default'">
+      <option value="Ascending">Ascending</option>
+      <option value="Descending">Descending</option>
+    </select>
+    <br/><br/>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -23,7 +38,7 @@
           <th class="col-md-1"></th>
         </tr>
       </thead>
-      <tbody *ngFor="let brief of favList">
+      <tbody *ngFor="let brief of favList.sort(comparergen(sortBy, order))">
         <tr>
           <td class="col-md-2"><a (click)="onSubmit(brief.Symbol)">{{brief.Symbol}}</a></td>
           <td class="col-md-2">{{brief.LastPrice.toFixed(2)}}</td>

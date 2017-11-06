@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { WebService } from './web.service';
 import * as $ from 'jquery';
 
+// TODO: timezone problem
+
 @Component({
   selector: 'DetailTab',
   templateUrl: './detailTable.component.html',
