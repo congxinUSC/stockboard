@@ -5,13 +5,13 @@ import { LocalStorageService } from './localstorage.service';
 @Component({
   selector: 'likeBtn',
   template: `
-    <button (click)="toggle(symbol)" type="button" class="btn btn-default">
-      <ng-template *ngIf="localStorageService.checkFavList(symbol) !== -1; then filledStar else emptyStar" ></ng-template>
+    <button (click)="toggle(webService.currentSymbol)" type="button" class="btn btn-default">
+      <ng-template *ngIf="localStorageService.checkFavList(webService.currentSymbol) !== -1; then filledStar else emptyStar"></ng-template>
       <ng-template #filledStar>
         <i class="glyphicon glyphicon-star" style="font-size:100%; color:#FED531"></i>
       </ng-template>
       <ng-template #emptyStar>
-        <i class="glyphicon glyphicon-star-empty" style="font-size:100%; color:#FED531"></i>
+        <i class="glyphicon glyphicon-star-empty" style="font-size:100%; color:#000000"></i>
       </ng-template>
     </button>
   `,
@@ -19,12 +19,10 @@ import { LocalStorageService } from './localstorage.service';
 
 export class LikeBtnComponent {
 
-  symbol;
 
   constructor(public webService: WebService, public localStorageService: LocalStorageService) {}
 
   ngOnInit(){
-    this.webService.currentSymbol.subscribe(str=>this.symbol=str);
     this.localStorageService.favList.subscribe(obj=>console.log(obj));
   }
 

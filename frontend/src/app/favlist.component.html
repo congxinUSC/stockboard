@@ -1,21 +1,40 @@
 <div class="panel panel-default">
-  <div class="panel-heading row">
-    <div class="col-xs-6">
-      <p><b>Favorite List</b></p>
-    </div>
-    <div class="col-xs-6 text-right">
-      Automatic Refresh:
-      <input data-toggle="toggle" type="checkbox">
-      <button><span class="glyphicon glyphicon-refresh"></span></button>
-      <button><span class="glyphicon glyphicon-chevron-right"></span></button>
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-6">
+        <p><b>Favorite List</b></p>
+      </div>
+      <div class="col-xs-6 text-right">
+        Automatic Refresh:
+        <input data-toggle="toggle" type="checkbox" [(ngModel)]="isAutoRefresh"/>
+        <button (click)="refresh()"><span class="glyphicon glyphicon-refresh"></span></button>
+        <button (click)="gotoDetail()" [disabled]="!(webService.currentSymbol)"><span class="glyphicon glyphicon-chevron-right"></span></button>
+      </div>
     </div>
   </div>
   <div class="panel-body">
-    <div *ngFor="let brief of webService.stockBrief | async">
-      <mat-card class="card">
-        <mat-card-title>{{brief.Name}}</mat-card-title>
-        <mat-card-content>{{brief.Symbol}}</mat-card-content>
-      </mat-card>
-    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="col-md-2">Symbol</th>
+          <th class="col-md-2">Stock Price</th>
+          <th class="col-md-5">Change (Change Percent)</th>
+          <th class="col-md-2">Volume</th>
+          <th class="col-md-1"></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let brief of favList">
+        <tr>
+          <td class="col-md-2"><a (click)="onSubmit(brief.Symbol)">{{brief.Symbol}}</a></td>
+          <td class="col-md-2">{{brief.LastPrice.toFixed(2)}}</td>
+          <td class="col-md-5" [ngClass]="{'raise':brief.Change>=0, 'fall':brief.Change<0}">
+            {{brief.Change.toFixed(2)}} ({{brief.ChangePercent.toFixed(2)}}%)
+            <img class="red_green_arrow" [src]="brief.Change>=0?raise_arrow_src:fall_arrow_src"/>
+          </td>
+          <td class="col-md-2">{{brief.Volume.toLocaleString()}}</td>
+          <td class="col-md-1"><button class="btn btn-default" (click)="unlike(brief.Symbol)"><i class="glyphicon glyphicon-trash"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -16,13 +16,13 @@ export class WebService{
   messages = this.messageSubject.asObservable();
 
   // Array of elements
-  private symbolListStore = [];
-  private symbolListSubject = new Subject();
-  symbolList = this.symbolListSubject.asObservable();
+  private AutoCompleteListStore = [];
+  private AutoCompleteListSubject = new Subject();
+  AutoCompleteList = this.AutoCompleteListSubject.asObservable();
 
   // The array that stores stock brief info in the favorite list
-  private stockBriefStore = [];
-  private stockBriefSubject = new Subject();
+  private stockBriefStore = new Map();
+  private stockBriefSubject = new Subject<any[]>();
   stockBrief = this.stockBriefSubject.asObservable();
 
   // The object that stores the entire set of detailed info of the stock
@@ -81,9 +81,7 @@ export class WebService{
   private requestStatusSubject = new Subject<any>();
   requestStatus = this.requestStatusSubject.asObservable();
 
-  private currentSymbolStore:string;
-  private currentSymbolSubject = new Subject<string>();
-  currentSymbol = this.currentSymbolSubject.asObservable();
+  currentSymbol:string;
   constructor (private http: Http) {}
 
   getMessages (user) {
@@ -106,8 +104,8 @@ export class WebService{
     if(!(short)) return;
     this.http.get(this.BASE_URL + '/lookup' + short).subscribe(response => {
       // update the symbol list
-      this.symbolListStore = response.json();
-      this.symbolListSubject.next(this.symbolListStore);
+      this.AutoCompleteListStore = response.json();
+      this.AutoCompleteListSubject.next(this.AutoCompleteListStore);
     }, this.handleError);
   }
 
@@ -115,17 +113,15 @@ export class WebService{
     symbol = (symbol) ? '/' + symbol : '';
     if(!(symbol)) return;
     this.http.get(this.BASE_URL + '/short' + symbol).subscribe( response => {
-      // update the brief stock information by pushing the new one in to the list
-      this.stockBriefStore.push(response.json());
-      this.stockBriefSubject.next(this.stockBriefStore);
+      this.stockBriefStore.set(response.json().Symbol ,response.json());
+      this.stockBriefSubject.next(Array.from(this.stockBriefStore));
     }, this.handleError);
   }
 
   getStockDetail (symbol) {
     if(!(symbol)) return;
 
-    this.currentSymbolStore = symbol.toUpperCase();
-    this.currentSymbolSubject.next(this.currentSymbolStore);
+    this.currentSymbol = symbol.toUpperCase();
     symbol = (symbol) ? '/' + symbol : '';
 
     this.requestStatusStore.Price = 'loading';
@@ -327,6 +323,7 @@ export class WebService{
   }
 
   fbshare(type) {
+    // TODO: alert when cancel or fail
     const exportURL = 'http://export.highcharts.com/';
     let data = {
       options: JSON.stringify(this.stockDetailStore[type]),
@@ -336,7 +333,6 @@ export class WebService{
     };
     this.http.post(exportURL ,data).subscribe(response => {
       let retURL = exportURL+response['_body'];
-      console.log(retURL);
       FB.init({
         appId: '1340180782759111',
         status: true,

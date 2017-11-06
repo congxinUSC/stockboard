@@ -50,6 +50,18 @@ let routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'favlist',
+    component: FavListComponent
+  },
+  {
+    path: 'details',
+    component: StockComponent
+  },
+  {
+    path: 'details/:symbol',
+    component: StockComponent
   }
 ];
 

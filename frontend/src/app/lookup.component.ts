@@ -7,11 +7,11 @@ import { FormControl, FormBuilder, Validators } from '@angular/forms';
   template: `
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field>
-        <input matInput placeholder="e.g. AAPL" aria-lagle="Stock" [matAutocomplete]="auto" 
+        <input matInput placeholder="e.g. AAPL" aria-lagle="Stock" [matAutocomplete]="auto"
                [formControl]="inputControl" [ngModel]="symbol" (ngModelChange)="valueChange($event)"
                name="symbol" formControlName="symbol"/>
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let stock of webService.symbolList | async" [value]="stock.Symbol">
+          <mat-option *ngFor="let stock of webService.AutoCompleteList | async" [value]="stock.Symbol">
             {{stock.Symbol}}
           </mat-option>
         </mat-autocomplete>
@@ -33,14 +33,13 @@ export class LookupComponent {
 
   timeoutHandle;
   valueChange(newValue){
+    newValue=newValue.toUpperCase();
     if(this.symbol === newValue) return;
     this.symbol=newValue;
     clearTimeout(this.timeoutHandle);
     this.timeoutHandle = setTimeout(() => {
       this.get();
-      //console.log(this.symbol);
     }, 500);
-    //this.get();
   }
 
   isValid (control) {
@@ -48,7 +47,10 @@ export class LookupComponent {
   }
 
   onSubmit () {
-    this.webService.getStockBrief(this.symbol);
+    // this.webService.getStockBrief(this.symbol);
+    this.webService.getStockDetail(this.symbol);
+
+    (<any>$('#detailtab')).tab('show');
   }
 
   get(){

@@ -1,0 +1,27 @@
+<nav></nav>
+<div class="container">
+  <div class="well">
+    <lookup></lookup>
+  </div>
+  <div class="well" style="background-color: #FFFFFF;">
+    <!--<router-outlet></router-outlet>-->
+    <ul id="stock-container" class="nav hidden" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#favlistpane" aria-controls="Current_stock" role="tab" data-toggle="tab" id="favlisttab">
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#detailpane" aria-controls="Historical_chart" role="tab" data-toggle="tab" id="detailtab">
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content" style="overflow: hidden">
+      <div role="tabpanel" class="tab-pane active" id="favlistpane">
+        <favlist></favlist>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="detailpane">
+        <Stock></Stock>
+      </div>
+    </div>
+  </div>
+</div>

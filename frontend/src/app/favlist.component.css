@@ -1,0 +1,23 @@
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>thead>tr>th {
+  background-color: #F9F9F9;
+}
+.table-striped>tbody>tr:nth-child(odd)>td {
+  background-color: #FFFFFF;
+}
+a {
+  cursor:pointer;
+}
+
+img.red_green_arrow {
+  width: 12px;
+  height: 12px;
+}
+
+.fall {
+  color: #FF0000;
+}
+
+.raise {
+  color: #00FF00;
+}
