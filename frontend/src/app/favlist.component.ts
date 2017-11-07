@@ -31,7 +31,6 @@ export class FavListComponent {
     this.localStorageService.favList.subscribe((arr)=>{
       this.favSymbolList=arr;
       this.refresh();
-
       this.favList=this.favList
         .filter(value => {
           return this.favSymbolList.indexOf(value[0]) !== -1;})
@@ -58,7 +57,6 @@ export class FavListComponent {
   }
 
   toggleValueChanged(val:boolean){
-    console.log(val);
     this.isAutoRefresh=val;
     if(val) {
       this.intervalHandler = setInterval(()=>{this.refresh()},5000);

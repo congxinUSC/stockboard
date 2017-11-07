@@ -9,10 +9,6 @@ let app = express();
 
 let alpha =new Alpha();
 
-let messages = [
-  {text: 'some text', owner: 'Congxin'},
-  {text: 'other text', owner: 'superman'}];
-
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -25,15 +21,48 @@ app.use((req, res, next) => {
 let api = express.Router();
 
 // get stock symbols for auto complete from Market on Demand
+// response as fast as possible
 api.get('/lookup/:shortcut', (req, res) => {
   const base = 'http://dev.markitondemand.com/MODApis/Api/v2/Lookup/json?input=';
-  request.get(base + req.params.shortcut, respJSON(res));
+  request.get(base + req.params.shortcut, (err,resp,body)=>{
+    // deal with the error
+    if(err){
+      console.error(err);
+      res.json([]);
+    } else {
+      try{
+        let ret=JSON.parse(body);
+        res.json(ret);
+      } catch (e) {
+        console.error(e);
+        res.json([]);
+      }
+    }
+  });
+});
+
+// get brief stock information from Market on Demand
+api.get('/short/:symbol', (req, res) => {
+  const base = 'http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?symbol=';
+  request.get(base + req.params.symbol, (err,resp,body)=>{
+    // deal with the error
+    if(err){
+      console.error(err);
+      res.json({error: 'Failed to get information from marketondemand'});
+    } else {
+      try{
+        let ret=JSON.parse(body);
+        res.json(ret);
+      } catch (e) {
+        console.error(e);
+        res.json({error:'Request blocked by marketondemand.'});
+      }
+    }
+  });
 });
 
 // get stock information (price, volume, indicators) from Alpha Vantage.
-// Approach 1 deal with the functions separately:
 
-// TODO: replace these with a single function getALL
 api.get('/alpha/:symbol/Price', alpha.getPV());
 api.get('/alpha/:symbol/SMA', alpha.getSMA());
 api.get('/alpha/:symbol/EMA', alpha.getEMA());
@@ -44,88 +73,56 @@ api.get('/alpha/:symbol/BBANDS', alpha.getBBANDS());
 api.get('/alpha/:symbol/MACD', alpha.getMACD());
 api.get('/alpha/:symbol/STOCH', alpha.getSTOCH());
 
-// Approach 2 wait for all messages and package them into one JSON (deprecated)
-/*
-// TODO: deal with wait-for-multiple-async-function problem
-api.get('/alpha/:symbol', (req, res) => {
-  const base = 'http://www.alphavantage.co/query?';
-  let params =
-    '&symbol=' + req.params.symbol +
-    '&apikey=W6U249N3KNYWN2TB'; // should be constant
-
-  const Price = '&function=TIME_SERIES_DAILY$outputsize=full';
-  const SHAREDPM =
-    '&interval=daily'+
-    '&time_period=10'+
-    '&series_type=close';
-  const SMA = '&function=SMA' + SHAREDPM;
-  const EMA = '&function=EMA' + SHAREDPM;
-  const RSI = '&function=RSI' + SHAREDPM;
-  const ADX = '&function=ADX' + SHAREDPM;
-  const CCI = '&function=CCI' + SHAREDPM;
-  const BBANDS = '&function=BBANDS' + SHAREDPM;
-  const STOCH = '&function=STOCH&interval=daily';
-
-
-  request.get(base + params + Price, respJSON(res));
-  // TODO: duplicate this ^ function for all parameters
-});
-*/
-
 // get stock news from Seeking Alpha News
 api.get('/news/:symbol', (req, res) => {
   const base = "https://seekingalpha.com/api/sa/combined/";
-  request.get(base + req.params.symbol, (err, resp, body) => {
-    parseString(body, (err, result) => {
-      let list = result.rss.channel[0].item;
-      let retJSON =[];
-      for(let i=0, count=0;i<list.length && count<5;i++) {
-        if(list[i].link[0].indexOf('/article/') !== -1){
-          let tmp = {
-            title: list[i].title[0],
-            link: list[i].link[0],
-            author: list[i]['sa:author_name'][0],
-            pubDate: list[i].pubDate[0]
-          };
-          retJSON.push(tmp);
-          count++;
+  function helper(url, tryCount=5, callback=()=>{}){
+    if(tryCount<=0) return;
+    setTimeout(()=>{
+      request.get(url, (err, resp, body) => {
+        if(err){
+          console.error(error);
+          res.json({error: 'Server side error in requesting news feed.'});
+          throw error;
+        } else {
+          parseString(body, (err, result) => {
+            if(err){
+              console.error(error);
+              res.json({error: 'Server side error in parsing news xml'});
+              throw error;
+            } else {
+              if(!result){
+                helper(url, tryCount-1);
+              } else {
+                let list = result.rss.channel[0].item;
+                let retJSON =[];
+                for(let i=0, count=0;i<list.length && count<5;i++) {
+                  if(list[i].link[0].indexOf('/article/') !== -1){
+                    let tmp = {
+                      title: list[i].title[0],
+                      link: list[i].link[0],
+                      author: list[i]['sa:author_name'][0],
+                      pubDate: list[i].pubDate[0]
+                    };
+                    retJSON.push(tmp);
+                    count++;
+                  }
+                }
+                res.json(retJSON);
+              }
+            }
+          });
         }
-      }
-      res.json(retJSON);
-    });
-  });
+        callback();
+      });
+    }, Math.random()*200);
+  }
+  helper(base + req.params.symbol);
 });
 
-// get brief stock information from Market on Demand
-api.get('/short/:symbol', (req, res) => {
-  const base = 'http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?symbol=';
-  request.get(base + req.params.symbol, respJSON(res));
-});
-
-// helper function for the api
-let respJSON = function (res) {
-  return (err, resp, body) => {
-    // TODO: deal with the error
-    // TODO: deal with the resp header?
-    res.json(JSON.parse(body));
-  };
-};
 
 
-api.get('/messages', (req, res) => {
-  res.json(messages);
-});
 
-api.get('/messages/:user', (req, res) => {
-  let user = req.params.user;
-  let result = messages.filter(message => message.owner === user);
-  res.json(result);
-});
-
-api.post('/messages', (req, res) => {
-  messages.push(req.body);
-  res.json(req.body);
-});
 
 app.use('/api', api);
 
