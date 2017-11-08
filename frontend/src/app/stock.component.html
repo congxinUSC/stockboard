@@ -1,10 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row">
-      <div class="col-xs-1">
+      <div class="col-xs-2">
         <button (click)="gotoFav()"><span class="glyphicon glyphicon-chevron-left"></span></button>
       </div>
-      <div class="col-xs-11">
+      <div class="col-xs-10">
         <p class="text-center"><b>Stock Details</b></p>
       </div>
     </div>
@@ -14,19 +14,19 @@
       <li role="presentation" class="active">
         <a href="#Current_stock" aria-controls="Current_stock" role="tab" data-toggle="tab" (click)="switchTab($event)">
           <i class="glyphicon glyphicon-dashboard"></i>
-          Current Stock
+          <span class="hidden-xs">Current </span>Stock
         </a>
       </li>
       <li role="presentation">
         <a href="#Historical_chart" aria-controls="Historical_chart" role="tab" data-toggle="tab" (click)="switchTab($event)">
           <i class="glyphicon glyphicon-stats"></i>
-          Historical Chart
+          <span class="hidden-xs">Historical </span>Chart
         </a>
       </li>
       <li role="presentation">
         <a href="#News_feed" aria-controls="News_feed" role="tab" data-toggle="tab" (click)="switchTab($event)">
           <i class="glyphicon glyphicon-link"></i>
-          News Feed
+          News<span class="hidden-xs"> Feed</span>
         </a>
       </li>
     </ul>

@@ -1,15 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WebService } from './web.service';
 import { LocalStorageService } from './localstorage.service';
-
-// TODO: sorting favList. right button color, error handling
 
 @Component({
   selector: 'favlist',
   templateUrl: './favlist.component.html',
   styleUrls: ['./favlist.component.css']
 })
-export class FavListComponent {
+export class FavListComponent implements OnInit {
 
   raise_arrow_src='http://cs-server.usc.edu:45678/hw/hw8/images/Up.png';
   fall_arrow_src='http://cs-server.usc.edu:45678/hw/hw8/images/Down.png';
@@ -52,8 +50,6 @@ export class FavListComponent {
     $('input[type=checkbox]').change((event)=>{
       this.toggleValueChanged((<HTMLInputElement>(event.target)).checked);
     });
-
-    // $('select>option:eq(0)').prop('selected', true);
   }
 
   toggleValueChanged(val:boolean){
@@ -87,12 +83,12 @@ export class FavListComponent {
   }
 
   gotoDetail(){
-    (<any>$('#detailtab')).tab('show');
+    this.localStorageService.currentView=1;
   }
 
   onSubmit (symbol) {
     this.webService.getStockDetail(symbol);
-    (<any>$('#detailtab')).tab('show');
+    this.localStorageService.currentView=1;
   }
 
   unlike (symbol) {

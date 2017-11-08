@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WebService } from './web.service';
 import * as Highcharts from 'highcharts/highstock'
 import * as HighchartsExporting from 'highcharts/modules/exporting';
@@ -9,7 +9,7 @@ HighchartsExporting(Highcharts);
   selector: 'histChart',
   templateUrl: './histChart.component.html',
 })
-export class HistChartComponent {
+export class HistChartComponent implements OnInit{
 
   constructor(public webService : WebService) {}
 

@@ -14,6 +14,6 @@ export class StockComponent {
     console.log(obj);
   }
   gotoFav(){
-    (<any>$('#favlisttab')).tab('show');
+    this.localStorageService.currentView=0;
   }
 }

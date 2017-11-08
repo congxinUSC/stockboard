@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WebService } from './web.service';
 import { LocalStorageService } from './localstorage.service';
 import * as Highcharts from 'highcharts';
@@ -6,13 +6,11 @@ import * as HighchartsExporting from 'highcharts/modules/exporting';
 
 HighchartsExporting(Highcharts);
 
-// TODO: deal with responsive issure
-
 @Component({
   selector: 'charts',
   templateUrl: './charts.component.html',
 })
-export class ChartsComponent {
+export class ChartsComponent implements OnInit{
 
   constructor(public webService : WebService, public localStorageService : LocalStorageService) {}
 

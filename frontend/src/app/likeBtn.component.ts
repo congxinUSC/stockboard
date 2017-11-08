@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { WebService } from './web.service';
 import { LocalStorageService } from './localstorage.service';
 
@@ -10,16 +10,16 @@ import { LocalStorageService } from './localstorage.service';
     <button (click)="toggle(webService.currentSymbol)" type="button" class="btn btn-default">
       <ng-template *ngIf="localStorageService.checkFavList(webService.currentSymbol) !== -1; then filledStar else emptyStar"></ng-template>
       <ng-template #filledStar>
-        <i class="glyphicon glyphicon-star" style="font-size:100%; color:#FED531"></i>
+        <i class="glyphicon glyphicon-star" style="color:#FED531"></i>
       </ng-template>
       <ng-template #emptyStar>
-        <i class="glyphicon glyphicon-star-empty" style="font-size:100%; color:#000000"></i>
+        <i class="glyphicon glyphicon-star-empty" style="color:#000000"></i>
       </ng-template>
     </button>
   `,
 })
 
-export class LikeBtnComponent {
+export class LikeBtnComponent implements OnInit{
 
   constructor(public webService: WebService, public localStorageService: LocalStorageService) {}
 

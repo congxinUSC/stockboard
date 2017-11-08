@@ -1,11 +1,11 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row">
-      <div class="col-xs-6">
-        <p><b>Favorite List</b></p>
+      <div class="col-xs-4">
+        <p style="white-space:nowrap;"><b>Favorite List</b></p>
       </div>
-      <div class="col-xs-6 text-right">
-        Automatic Refresh:
+      <div class="col-xs-8 text-right">
+        <span class="hidden-xs">Automatic Refresh:</span>
         <input data-toggle="toggle" type="checkbox" [(ngModel)]="isAutoRefresh"/>
         <button (click)="refresh()"><span class="glyphicon glyphicon-refresh"></span></button>
         <button (click)="gotoDetail()" [disabled]="!(webService.currentSymbol)"><span class="glyphicon glyphicon-chevron-right"></span></button>
@@ -13,41 +13,49 @@
     </div>
   </div>
   <div class="panel-body">
-    <b>Sort by</b>
-    <select id="sortBy" [(ngModel)]="sortBy">
-      <option value="Default">Default</option>
-      <option value="Symbol">Symbol</option>
-      <option value="LastPrice">Price</option>
-      <option value="Change">Change</option>
-      <option value="ChangePercent">Change Percent</option>
-      <option value="Volume">Volume</option>
-    </select>
-    <b>Order</b>
-    <select id="order" [(ngModel)]="order" [disabled]="sortBy==='Default'">
-      <option value="Ascending">Ascending</option>
-      <option value="Descending">Descending</option>
-    </select>
-    <br/><br/>
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="sortBy">
+          <b>Sort by</b>
+        </label>
+        <select class="form-control" id="sortBy" name="sortBy" [(ngModel)]="sortBy">
+          <option value="Default">Default</option>
+          <option value="Symbol">Symbol</option>
+          <option value="LastPrice">Price</option>
+          <option value="Change">Change</option>
+          <option value="ChangePercent">Change Percent</option>
+          <option value="Volume">Volume</option>
+        </select>
+        <label for="order">
+          <b>Order</b>
+        </label>
+        <select class="form-control" id="order" name="order" [(ngModel)]="order" [disabled]="sortBy==='Default'">
+          <option value="Ascending">Ascending</option>
+          <option value="Descending">Descending</option>
+        </select>
+      </div>
+    </form>
+    <br/>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th class="col-md-2">Symbol</th>
-          <th class="col-md-2">Stock Price</th>
-          <th class="col-md-5">Change (Change Percent)</th>
-          <th class="col-md-2">Volume</th>
-          <th class="col-md-1"></th>
+          <th class="col-sm-2 col-xs-3">Symbol</th>
+          <th class="col-sm-2 col-xs-4">Stock Price</th>
+          <th class="col-sm-5 col-xs-5">Change (Change Percent)</th>
+          <th class="col-sm-2 hidden-xs">Volume</th>
+          <th class="col-sm-1 hidden-xs"></th>
         </tr>
       </thead>
-      <tbody *ngFor="let brief of favList.sort(comparergen(sortBy, order))">
-        <tr>
-          <td class="col-md-2"><a (click)="onSubmit(brief.Symbol)">{{brief.Symbol}}</a></td>
-          <td class="col-md-2">{{brief.LastPrice.toFixed(2)}}</td>
-          <td class="col-md-5" [ngClass]="{'raise':brief.Change>=0, 'fall':brief.Change<0}">
+      <tbody>
+        <tr *ngFor="let brief of favList.sort(comparergen(sortBy, order))">
+          <td class="col-sm-2 col-xs-3"><a (click)="onSubmit(brief.Symbol)">{{brief.Symbol}}</a></td>
+          <td class="col-sm-2 col-xs-4">{{brief.LastPrice.toFixed(2)}}</td>
+          <td class="col-sm-5 col-xs-5" [ngClass]="{'raise':brief.Change>=0, 'fall':brief.Change<0}">
             {{brief.Change.toFixed(2)}} ({{brief.ChangePercent.toFixed(2)}}%)
             <img class="red_green_arrow" [src]="brief.Change>=0?raise_arrow_src:fall_arrow_src"/>
           </td>
-          <td class="col-md-2">{{brief.Volume.toLocaleString()}}</td>
-          <td class="col-md-1"><button class="btn btn-default" (click)="unlike(brief.Symbol)"><i class="glyphicon glyphicon-trash"></i></button></td>
+          <td class="col-sm-2 hidden-xs">{{brief.Volume.toLocaleString()}}</td>
+          <td class="col-sm-1 hidden-xs"><button class="btn btn-default" (click)="unlike(brief.Symbol)"><i class="glyphicon glyphicon-trash"></i></button></td>
         </tr>
       </tbody>
     </table>

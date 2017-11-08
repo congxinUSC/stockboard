@@ -10,12 +10,17 @@ export class LocalStorageService {
   private favListStore = [''];
   favList;
 
+  currentView=0;
+
   private selectedStore;
   private selectedSubject = new Subject();
   selected = this.selectedSubject.asObservable();
 
   constructor(){
-    this.favListStore = JSON.parse(localStorage.getItem('favlist'));
+    let tmp = localStorage.getItem('favlist');
+    if(tmp){
+      this.favListStore = JSON.parse(tmp);
+    }
     this.favList = new BehaviorSubject(this.favListStore);
   }
 

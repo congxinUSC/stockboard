@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit} from '@angular/core'
 import { WebService } from './web.service';
 import { LocalStorageService } from './localstorage.service';
 
@@ -8,12 +8,12 @@ import { LocalStorageService } from './localstorage.service';
   selector: 'fb-share',
   template: `
       <button (click)="share()" [disabled]="'OK' !== chartStatus[selection]" class="btn btn-default" type="button">
-        <i class="fa fa-facebook-square" style="font-size:100%; color:#3B5998"></i>
+        <i class="fa fa-facebook-square fa-lg" style="color:#3B5998"></i>
       </button>
   `,
 })
 
-export class FbshareComponent {
+export class FbshareComponent implements OnInit{
 
   selection = 'Price';
   chartStatus = {

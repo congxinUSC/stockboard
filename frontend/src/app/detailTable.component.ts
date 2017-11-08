@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WebService } from './web.service';
-import * as $ from 'jquery';
 
 // TODO: timezone problem
 
@@ -9,7 +8,7 @@ import * as $ from 'jquery';
   templateUrl: './detailTable.component.html',
   styleUrls: ['./detailTable.component.css']
 })
-export class DetailTableComponent {
+export class DetailTableComponent implements OnInit{
 
   constructor(public webService : WebService) {}
 

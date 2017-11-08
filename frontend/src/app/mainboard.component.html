@@ -1,0 +1,12 @@
+<mat-tab-group [(selectedIndex)]="localStorageService.currentView">
+  <mat-tab label="Tab 1" >
+    <div role="tabpanel" class="tab-pane active" id="favlistpane">
+      <favlist></favlist>
+    </div>
+  </mat-tab>
+  <mat-tab label="Tab 2" >
+    <div role="tabpanel" class="tab-pane" id="detailpane">
+      <Stock></Stock>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -12,6 +12,7 @@ declare let FB: any;
 export class WebService{
 
   BASE_URL = 'http://localhost:4201/api';
+  // BASE_URL = 'http://10.0.3.126:4201/api';
 
   // Array of elements
   private AutoCompleteListStore = [];
@@ -82,6 +83,10 @@ export class WebService{
   currentSymbol:string;
   constructor (private http: Http) {}
 
+  clearResult () {
+    this.currentSymbol='';
+  }
+
   getSymbolList (short) {
     if(!(short)) return;
     this.http.get(this.BASE_URL + '/lookup/' + short).subscribe(response => {
@@ -110,7 +115,7 @@ export class WebService{
   getStockDetail (symbol) {
     if(!(symbol)) return;
 
-    // this.currentSymbol = symbol.toUpperCase();
+    this.currentSymbol = symbol;
     this.requestStatusStore.Price = 'loading';
     this.requestStatusStore.SMA = 'loading';
     this.requestStatusStore.EMA = 'loading';
