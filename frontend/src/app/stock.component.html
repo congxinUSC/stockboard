@@ -1,10 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row">
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-sm-1">
         <button (click)="gotoFav()"><span class="glyphicon glyphicon-chevron-left"></span></button>
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-10 col-sm-11">
         <p class="text-center"><b>Stock Details</b></p>
       </div>
     </div>
@@ -12,19 +12,19 @@
   <div class="panel-body">
     <ul id="stock-container" class="nav nav-pills" role="tablist">
       <li role="presentation" class="active">
-        <a href="#Current_stock" aria-controls="Current_stock" role="tab" data-toggle="tab" (click)="switchTab($event)">
+        <a href="#Current_stock" aria-controls="Current_stock" role="tab" data-toggle="tab" id="Current_stock_sel" (click)="switchTab($event)">
           <i class="glyphicon glyphicon-dashboard"></i>
           <span class="hidden-xs">Current </span>Stock
         </a>
       </li>
       <li role="presentation">
-        <a href="#Historical_chart" aria-controls="Historical_chart" role="tab" data-toggle="tab" (click)="switchTab($event)">
+        <a href="#Historical_chart" aria-controls="Historical_chart" role="tab" data-toggle="tab" id="Historical_chart_sel" (click)="switchTab($event)">
           <i class="glyphicon glyphicon-stats"></i>
           <span class="hidden-xs">Historical </span>Chart
         </a>
       </li>
       <li role="presentation">
-        <a href="#News_feed" aria-controls="News_feed" role="tab" data-toggle="tab" (click)="switchTab($event)">
+        <a href="#News_feed" aria-controls="News_feed" role="tab" data-toggle="tab" id="News_feed_sel" (click)="switchTab($event)">
           <i class="glyphicon glyphicon-link"></i>
           News<span class="hidden-xs"> Feed</span>
         </a>
@@ -32,13 +32,13 @@
     </ul>
     <hr/>
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="Current_stock">
+      <div role="tabpanel" class="tab-pane active fade in" id="Current_stock">
         <Detail></Detail>
       </div>
-      <div role="tabpanel" class="tab-pane" id="Historical_chart">
+      <div role="tabpanel" class="tab-pane fade" id="Historical_chart">
         <histChart></histChart>
       </div>
-      <div role="tabpanel" class="tab-pane" id="News_feed">
+      <div role="tabpanel" class="tab-pane fade" id="News_feed">
         <NewsFeed></NewsFeed>
       </div>
     </div>

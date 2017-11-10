@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { WebService } from './web.service';
 import { LocalStorageService } from './localstorage.service';
-
-// TODO: style problem icon too small
 
 @Component({
   selector: 'likeBtn',
@@ -19,13 +17,10 @@ import { LocalStorageService } from './localstorage.service';
   `,
 })
 
-export class LikeBtnComponent implements OnInit{
+export class LikeBtnComponent{
 
   constructor(public webService: WebService, public localStorageService: LocalStorageService) {}
 
-  ngOnInit(){
-    this.localStorageService.favList.subscribe(obj=>console.log(obj));
-  }
 
   toggle(symbol){
     if((!symbol)) return;

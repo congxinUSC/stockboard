@@ -15,6 +15,7 @@ export class ChartsComponent implements OnInit{
   constructor(public webService : WebService, public localStorageService : LocalStorageService) {}
 
   status;
+
   ngOnInit () {
     this.webService.stockPV.subscribe(this.plotPV);
     this.webService.stockSMA.subscribe(this.plotSMA);
@@ -26,15 +27,18 @@ export class ChartsComponent implements OnInit{
     this.webService.stockBBANDS.subscribe(this.plotBBANDS);
     this.webService.stockMACD.subscribe(this.plotMACD);
 
+    this.localStorageService.currentSubView.subscribe(this.reflow);
+
     this.webService.requestStatus.subscribe((obj)=>{
         this.status=obj;
       });
+
   }
 
   // setTimeout(func, 0) to make sure this happens after angular render the target div
   private plotPV(obj) {
     setTimeout(()=>{
-      Highcharts.chart('chartPV',obj);
+      Highcharts.chart('chartPrice',obj);
     }, 0);
   }
   private plotSMA(obj) {
@@ -80,5 +84,21 @@ export class ChartsComponent implements OnInit{
 
   switchTab(event) {
     this.localStorageService.setSelected(event.target.innerText);
+    Highcharts.charts.forEach((c)=>{
+      if(c.renderTo.id.indexOf(event.target.innerText)!=-1){
+        setTimeout(()=>{
+          c.reflow();
+        },0);
+      }
+    });
+  }
+
+  reflow(sel) {
+    if(sel!=='Current_stock_sel') return;
+    Highcharts.charts.forEach((c)=>{
+      setTimeout(()=>{
+        c.reflow();
+      },0);
+    });
   }
 }

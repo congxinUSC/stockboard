@@ -7,14 +7,18 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 export class LocalStorageService {
   // Only store the symbols
-  private favListStore = [''];
+  private favListStore = [];
   favList;
 
   currentView=0;
 
-  private selectedStore;
-  private selectedSubject = new Subject();
-  selected = this.selectedSubject.asObservable();
+  private currentSubViewStore;
+  private currentSubViewSubject = new Subject();
+  currentSubView = this.currentSubViewSubject.asObservable();
+
+  private selectedIndStore;
+  private selectedIndSubject = new Subject();
+  selectedInd = this.selectedIndSubject.asObservable();
 
   constructor(){
     let tmp = localStorage.getItem('favlist');
@@ -43,8 +47,12 @@ export class LocalStorageService {
   }
 
   setSelected(selected) {
-    this.selectedStore=selected;
-    this.selectedSubject.next(this.selectedStore);
+    this.selectedIndStore=selected;
+    this.selectedIndSubject.next(this.selectedIndStore);
   }
 
+  setSubView(sbv) {
+    this.currentSubViewStore=sbv;
+    this.currentSubViewSubject.next(this.currentSubViewStore);
+  }
 }

@@ -1,5 +1,5 @@
 import request from 'request';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 export class Alpha {
   base = 'http://www.alphavantage.co/query?';
@@ -62,6 +62,11 @@ export class Alpha {
                       _HCvolume.push(Number(main_data[data_keys[i]]['5. volume']));
                     }
                   }
+                  let tzfix = moment.tz(meta_data['3. Last Refreshed'], 'America/New_York').format('z');
+                  let tabTS = meta_data['3. Last Refreshed'].length>10
+                    ? meta_data['3. Last Refreshed']
+                    : meta_data['3. Last Refreshed']+' 16:00:00';
+                  tabTS += ' ' + tzfix;
                   _HCcategories.reverse();
                   _HCprice.reverse();
                   _HCvolume.reverse();
@@ -78,7 +83,7 @@ export class Alpha {
                       high: _high,
                       low: _low,
                       volume: _volume,
-                      timestamp: meta_data['3. Last Refreshed']
+                      timestamp: tabTS
                     },
                     HCobj: {      // highcharts object
                       chart: {
@@ -152,24 +157,6 @@ export class Alpha {
                       tooltip: {
                         split: false,
                         valueDecimals: 2,
-                      },
-                      responsive: {
-                        rules: [{
-                          condition: {
-                            maxWidth: 500
-                          },
-                          chartOptions: {
-                            chart: {
-                              height: 300
-                            },
-                            subtitle: {
-                              text: null
-                            },
-                            navigator: {
-                              enabled: false
-                            }
-                          }
-                        }]
                       }
                     }
                   };

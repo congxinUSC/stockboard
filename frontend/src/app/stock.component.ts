@@ -10,8 +10,8 @@ export class StockComponent {
 
   constructor(public webService: WebService, public localStorageService : LocalStorageService) {}
 
-  switchTab(obj){
-    console.log(obj);
+  switchTab(event){
+    this.localStorageService.setSubView(event.target.id);
   }
   gotoFav(){
     this.localStorageService.currentView=0;

@@ -4,6 +4,7 @@ import request from 'request';
 import bodyParser from 'body-parser';
 import { parseString } from 'xml2js';
 import { Alpha } from './alphaAPI';
+import moment from 'moment-timezone';
 
 let app = express();
 
@@ -73,6 +74,23 @@ api.get('/alpha/:symbol/BBANDS', alpha.getBBANDS());
 api.get('/alpha/:symbol/MACD', alpha.getMACD());
 api.get('/alpha/:symbol/STOCH', alpha.getSTOCH());
 
+api.post('/chart', (req, res)=>{
+  const exportURL = 'http://export.highcharts.com/';
+  request.post({
+    headers:{},
+    url: exportURL,
+    form: req.body
+    },(err, resp, body)=>{
+      if(err){
+        console.error(err);
+        res.send('');
+        throw err;
+      } else {
+        res.send(exportURL+body);
+      }
+    });
+});
+
 // get stock news from Seeking Alpha News
 api.get('/news/:symbol', (req, res) => {
   const base = "https://seekingalpha.com/api/sa/combined/";
@@ -102,7 +120,8 @@ api.get('/news/:symbol', (req, res) => {
                       title: list[i].title[0],
                       link: list[i].link[0],
                       author: list[i]['sa:author_name'][0],
-                      pubDate: list[i].pubDate[0]
+                      pubDate: list[i].pubDate[0].substr(0,list[i].pubDate[0].length-5)+
+                      moment.tz(list[i].pubDate[0], 'America/New_York').format('z')
                     };
                     retJSON.push(tmp);
                     count++;
@@ -120,10 +139,12 @@ api.get('/news/:symbol', (req, res) => {
   helper(base + req.params.symbol);
 });
 
-
-
-
-
 app.use('/api', api);
 
-app.listen(4201);
+let server = app.listen(8081, ()=>
+{
+  let host=server.address().address;
+  let port=server.address().port;
+
+  console.log('Node listening at http://%s:%s', host, port);
+});

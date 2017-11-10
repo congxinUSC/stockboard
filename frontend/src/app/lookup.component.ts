@@ -25,7 +25,7 @@ export class LookupComponent {
     clearTimeout(this.timeoutHandle);
     this.timeoutHandle = setTimeout(() => {
       this.get();
-    }, 500);
+    }, 200);
   }
 
   isValid () {

@@ -2,8 +2,6 @@ import { Component, OnInit} from '@angular/core'
 import { WebService } from './web.service';
 import { LocalStorageService } from './localstorage.service';
 
-// TODO: handle with the sharing result. icon size problem
-
 @Component({
   selector: 'fb-share',
   template: `
@@ -31,7 +29,7 @@ export class FbshareComponent implements OnInit{
   constructor(public webService: WebService, public localStorageService: LocalStorageService) {}
 
   ngOnInit(){
-    this.localStorageService.selected.subscribe((str)=>{
+    this.localStorageService.selectedInd.subscribe((str)=>{
       this.selection = str.toString();
     });
     this.webService.requestStatus.subscribe((obj)=>{
@@ -40,8 +38,6 @@ export class FbshareComponent implements OnInit{
   }
 
   share(){
-    // console.log(this.selection);
-    // console.log(this.chartStatus);
     this.webService.fbshare(this.selection);
   }
 }

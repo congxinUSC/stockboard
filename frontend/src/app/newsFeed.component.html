@@ -13,14 +13,14 @@
     </div>
   </div>
   <div *ngSwitchCase="'OK'">
-    <div class = "container" *ngFor="let article of newsobj">
-      <div class="well">
+    <!--<div class = "container">-->
+      <div class="well" *ngFor="let article of newsobj">
         <h4><a href = {{article.link}} target="_blank">{{article.title}}</a></h4>
         <br/>
         <p>Author: {{article.author}}</p>
         <p>Date: {{article.pubDate}}</p>
       </div>
-    </div>
+    <!--</div>-->
   </div>
   <div *ngSwitchDefault>
     <div class="progress">
